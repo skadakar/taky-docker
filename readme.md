@@ -23,3 +23,6 @@ Supported env variables:
 ||ca_key|
 ||server_p12|
 ||server_p12_key|
+
+If not specified it will use the content of taky.conf
+This will default to use /data/ for saving data.
