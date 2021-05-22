@@ -16,6 +16,7 @@ COPY env.sh /env.sh
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
 
+RUN cd taky
 RUN python3 taky/setup.py install
 
 #Setup user
