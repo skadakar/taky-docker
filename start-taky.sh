@@ -3,6 +3,7 @@ ls -la /data/
 echo "whomai"
 whoami
 echo "touching things"
+mkdir -p /data/conf
 touch /data/conf/taky.conf
 
 #Env handling
