@@ -16,7 +16,7 @@ COPY env.sh /env.sh
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
 WORKDIR /taky
-RUN setup.py install
+RUN /taky/setup.py install
 
 #Setup user
 RUN addgroup --gid 1000 taky && \
