@@ -11,9 +11,9 @@ RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil redis gu
 RUN pip3 install flask &&\
     pip3 install pyopenssl
 #Folders
-RUN mdkir /data &&\
-    mdkir /data/logs&&\
-    mdkir /data/database &&\
+RUN mkdir /data &&\
+    mkdir /data/logs&&\
+    mkdir /data/database &&\
     chmod -R 777 /data
 
 COPY env.sh /env.sh
