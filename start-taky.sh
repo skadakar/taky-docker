@@ -2,26 +2,20 @@
 echo "chownhack"
 chown -R taky:taky /data
 
-echo "Debug"
-ls -la /data/
-echo "whomai"
-whoami
-echo "touching things"
+echo "Preparing folder structure"
 mkdir -p /data/conf
 mkdir -p /data/ssl
 mkdir -p /data/logs
 mkdir -p /data/upload
-touch /data/conf/taky.conf
+echo "Resetting config file"
+cp -f /taky.conf /data/conf/taky.conf
 
 
 #Env handling
 echo "Adding variables to relevant config files"
 source env.sh
 
-#Print version because..
-echo "Taky version:"
-taky --version
 
-echo "Starting taky"
 #Starting taky
+echo "Starting taky as taky user"
 exec runuser taky -c "taky -c /data/conf/taky.conf -l debug"
