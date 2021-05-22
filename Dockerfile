@@ -18,7 +18,7 @@ RUN mkdir /data &&\
 
 COPY env.sh /env.sh
 COPY start-taky.sh /start-taky.sh
-RUN echo "#Env variables handled by the docker run command" > /data/taky.conf
+RUN bash -c "echo \"#Env variables handled by the docker run command\" > /data/taky.conf"
 
 
 #Install Taky
