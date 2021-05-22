@@ -28,16 +28,10 @@ USER taky
 #Setup data
 VOLUME ["/data"]
 #Permissions
-RUN touch /data
 RUN chown -R taky:taky /data
-
-
-
 
 #Ports
 EXPOSE 8087
 EXPOSE 8089
-
-
 
 ENTRYPOINT ["/bin/bash", "/start-taky.sh"]
