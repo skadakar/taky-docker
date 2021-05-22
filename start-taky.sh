@@ -12,4 +12,4 @@ echo "Starting taky"
 taky --version
 
 #Starting taky
-taky -c /data/taky.conf -l debug
+taky -c /data/conf/taky.conf -l debug
