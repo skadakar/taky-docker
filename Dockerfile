@@ -25,8 +25,8 @@ RUN cd /taky && python3 ./setup.py install
 RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 #Redis data + logs
-RUN sed -i 's/dir \/var\/lib\/redis/dir \/data\/taky\/database/g' /etc/redis/redis.conf
-RUN sed -i 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/data\/taky\/logs/g' /etc/redis/redis.conf
+RUN sed -i 's/dir \/var\/lib\/redis/dir \/data\/database/g' /etc/redis/redis.conf
+RUN sed -i 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/data\/logs/g' /etc/redis/redis.conf
 
 RUN sed -i 's/User\=redis/User\=taky/g' /usr/lib/systemd/system/redis-server.service
 RUN sed -i 's/Group\=taky/Group\=taky/g' /usr/lib/systemd/system/redis-server.service
