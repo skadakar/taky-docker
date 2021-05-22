@@ -24,7 +24,7 @@ RUN cd /taky && python3 ./setup.py install
 #Setup user
 RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
-#Redis to data mount
+#Redis data + logs
 RUN sed -i 's/dir \/var\/lib\/redis/dir \/data\/taky\/database/g' /etc/redis/redis.conf
 RUN sed -i 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/data\/taky\/logs/g' /etc/redis/redis.conf
 
