@@ -2,3 +2,4 @@
 #
 # Config is located here:
 # /usr/local/lib/python3.8/dist-packages/taky-*.egg/taky
+echo "#test" > /data/taky.conf
