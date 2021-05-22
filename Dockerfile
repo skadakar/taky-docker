@@ -27,11 +27,11 @@ RUN addgroup --gid 1000 taky  &&\
 #Setup data
 #Permissions
 USER root
-RUN chmod -R 777
 RUN mkdir -p /data
 RUN mkdir -p /data/logs/
 RUN mkdir -p /data/database/
 RUN mkdir -p /data/conf/
+RUN chmod -R 777 /data
 #RUN chown -R taky:taky /data
 USER taky
 #Ports
