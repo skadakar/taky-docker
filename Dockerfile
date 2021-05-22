@@ -16,8 +16,9 @@ COPY start-taky.sh /start-taky.sh
 
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
-RUN cp -a /taky/. /
-RUN setup.py install
+RUN chmod -R 777 /taky
+RUN bash -c "INSTALL_POOP=/taky/setup.py python3 /taky/setup.py install"
+
 
 #Setup user
 RUN addgroup --gid 1000 taky && \
