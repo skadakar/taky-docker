@@ -24,7 +24,7 @@ if [ -z "${bind_ip}" ]; then
 	echo "Using default bind_ip"
 else
 	echo "Setting bind_ip to ${bind_ip}"
-	crudini --set $CONFY ssl bind_ip ${bind_ip}
+	crudini --set $CONFY taky bind_ip ${bind_ip}
 fi
 
 #public_ip
