@@ -17,7 +17,7 @@ COPY env.sh /env.sh
 RUN git clone https://github.com/tkuester/taky
 
 RUN cd taky
-RUN python3 taky/setup.py install
+RUN python3 setup.py install
 
 #Setup user
 RUN addgroup --gid 1000 taky && \
