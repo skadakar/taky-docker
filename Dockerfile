@@ -25,11 +25,6 @@ RUN cd /taky && python3 ./setup.py install
 RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
-#Setup data
-#Permissions
-USER root
-RUN mkdir -p /data && chown -R taky:taky /data
-USER taky
 #Ports
 EXPOSE 8087
 EXPOSE 8089
