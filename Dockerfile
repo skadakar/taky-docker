@@ -10,11 +10,16 @@ RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil redis gu
 
 RUN pip3 install flask &&\
     pip3 install pyopenssl
+#Folders
+RUN mdkir /data &&\
+    mdkir /data/logs&&\
+    mdkir /data/database &&\
+    chmod -R 777 /data
 
 COPY env.sh /env.sh
 COPY start-taky.sh /start-taky.sh
 RUN echo "#Env variables handled by the docker run command" > /data/taky.conf
-RUN chmod -R 777 /data
+
 
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
