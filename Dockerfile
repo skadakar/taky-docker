@@ -21,8 +21,9 @@ RUN chmod -R 777 /taky
 RUN cd /taky && python3 ./setup.py install
 
 #Setup user
-RUN adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky && \
-    addgroup --gid 1000 taky 
+RUN addgroup --gid 1000 taky  &&\
+    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
+    
     
 #Permissions
 RUN mkdir -p /data
