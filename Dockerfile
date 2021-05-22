@@ -9,7 +9,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil redis gunicorn git
 
 RUN pip3 install flask &&\
-	pip3 install pyopenssl
+    pip3 install pyopenssl
 
 COPY env.sh /env.sh
 COPY start-taky.sh /start-taky.sh
@@ -17,8 +17,7 @@ COPY start-taky.sh /start-taky.sh
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
 RUN chmod -R 777 /taky
-RUN bash -c "INSTALL_POOP=/taky/setup.py python3 /taky/setup.py install"
-
+RUN cd /taky && python3 ./setup.py install
 
 #Setup user
 RUN addgroup --gid 1000 taky && \
