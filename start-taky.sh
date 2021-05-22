@@ -1,9 +1,8 @@
 #Folder creation
-echo "Creating folders"
-mkdir -p /data/conf
-mkdir -p /data/logs
-mkdir -p /data/database
-
+echo "Debug"
+ls -la /data/
+echo "whomai"
+whoami
 #Env handling
 echo "Adding variables to relevant config files"
 bash -c "echo \"#PruningConfig\" > /data/conf/taky.conf"
