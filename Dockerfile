@@ -9,7 +9,8 @@ RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil redis gunicorn git
 
 RUN pip3 install flask &&\
-    pip3 install pyopenssl
+    pip3 install pyopenssl &&\
+    pip3 install crudini
 
 COPY env.sh /env.sh
 COPY start-taky.sh /start-taky.sh
