@@ -1,7 +1,6 @@
 #!/bin/sh
 echo "chownhack"
 chown -R taky:taky /data
-exec runuser -u taky "$@"
 
 echo "Debug"
 ls -la /data/
@@ -25,4 +24,4 @@ taky --version
 
 echo "Starting taky"
 #Starting taky
-taky -c /data/conf/taky.conf -l debug
+exec runuser -u taky -c "taky -c /data/conf/taky.conf -l debug"
