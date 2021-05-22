@@ -30,7 +30,7 @@ RUN sed -i 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/data\/taky\/
 
 RUN sed -i 's/User\=redis/User\=taky/g' /usr/lib/systemd/system/redis-server.service
 RUN sed -i 's/Group\=taky/Group\=taky/g' /usr/lib/systemd/system/redis-server.service
-RUN sed -i 's//var/\(.*\)/redis//data/database/g' /usr/lib/systemd/system/redis-server.service
+RUN sed -i 's/\/var/\(.*\)\/redis\//data\/database/g' /usr/lib/systemd/system/redis-server.service
 
 
 
