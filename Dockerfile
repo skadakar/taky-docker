@@ -23,6 +23,9 @@ RUN cd /taky && python3 ./setup.py install
 #Setup user
 RUN addgroup --gid 1000 taky && \
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky
+#Permissions
+RUN chown -R taky:taky /data
+
 USER taky
 
 #Setup data
