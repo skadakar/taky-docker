@@ -24,4 +24,4 @@ taky --version
 
 echo "Starting taky"
 #Starting taky
-exec runuser -u taky -c "taky -c /data/conf/taky.conf -l debug"
+exec runuser taky -c "taky -c /data/conf/taky.conf -l debug"
