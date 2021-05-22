@@ -2,7 +2,7 @@ Docker image for this project https://github.com/tkuester/taky
 
 Example run command:
 
-``` docker run -e bind_ip=0.0.0.0 -e public_ip=165.227.80.95 -v /root/takydata:/data -p 8087:8087 -p 8089:8089 -d --name Taky skadakar/taky:loopest ```
+``` docker run -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8087:8087 -p 8089:8089 -d --name Taky skadakar/taky:loopest ```
 
 Supported env variables:
 
