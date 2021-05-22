@@ -20,7 +20,7 @@ RUN python3 taky/setup.py install
 RUN addgroup --gid 1000 taky && \
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky
 
-
+USER taky
 
 #Setup data
 VOLUME ["/data"]
