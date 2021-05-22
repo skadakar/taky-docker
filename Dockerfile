@@ -12,6 +12,7 @@ RUN pip3 install flask &&\
 	pip3 install pyopenssl
 
 COPY env.sh /env.sh
+COPY start-taky.sh /start-taky.sh
 
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
