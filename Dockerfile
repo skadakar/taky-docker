@@ -15,6 +15,7 @@ COPY env.sh /env.sh
 
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
+RUN chmod -R 777 /taky
 WORKDIR /taky
 RUN /taky/setup.py install
 
