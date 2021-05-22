@@ -12,6 +12,7 @@ Supported env variables:
 ||node_id||
 ||bind_ip|
 ||public_ip|
+||public_ip|true/false|
 | COT SERVER||
 ||port
 ||cot_log
