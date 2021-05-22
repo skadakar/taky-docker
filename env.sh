@@ -35,6 +35,15 @@ else
 	crudini --set $CONFY taky public_ip ${public_ip}
 fi
 
+#redis
+if [ -z "${redis}" ]; then
+	echo "Using default redis (false)"
+else
+	echo "Setting redis to ${redis}"
+	crudini --set $CONFY taky redis ${redis}
+fi
+
+
 #COT SERVER
 #port
 if [ -z "${port}" ]; then
