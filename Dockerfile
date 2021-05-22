@@ -14,8 +14,7 @@ RUN pip3 install flask &&\
 #Copy scripts
 COPY env.sh /env.sh
 COPY start-taky.sh /start-taky.sh
-RUN mkdir -p /data
-COPY taky.conf /data/conf/taky.conf
+COPY taky.conf /taky.conf
 
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
