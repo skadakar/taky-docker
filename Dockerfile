@@ -15,7 +15,8 @@ COPY env.sh /env.sh
 
 #Install Taky
 RUN git clone https://github.com/tkuester/taky
-RUN bash -c "taky_setup=/taky/setup.py python3 /taky/setup.py install"
+WORKDIR /taky
+RUN setup.py install
 
 #Setup user
 RUN addgroup --gid 1000 taky && \
