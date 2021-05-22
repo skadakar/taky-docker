@@ -1,7 +1,3 @@
-#Setting folder stuff
-chmod -R 777 /data
-touch /data/taky.conf
-
 #Env handling
 echo "Adding variables to relevant config files"
 source fts.sh
