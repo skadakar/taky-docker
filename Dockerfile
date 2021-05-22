@@ -27,8 +27,7 @@ RUN addgroup --gid 1000 taky  &&\
 #Setup data
 #Permissions
 USER root
-RUN mkdir -p /data
-RUN chown -R taky:taky /data
+RUN mkdir -p /data && chown -R taky:taky /data
 USER taky
 #Ports
 EXPOSE 8087
