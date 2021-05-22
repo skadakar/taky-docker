@@ -1,7 +1,9 @@
 FROM ubuntu:20.04
 
-#Setup required stuff
+# UTC because everything on a server should be UTC
+RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 
+#Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil redis gunicorn git
