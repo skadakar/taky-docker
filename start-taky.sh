@@ -16,7 +16,8 @@ cp -f /taky.conf /data/conf/taky.conf
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
-#do nerdshit here
+	#do nerdshit here
+	echo "poop"
 fi
 
 #Env handling
