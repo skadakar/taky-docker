@@ -28,7 +28,8 @@ RUN addgroup --gid 1000 taky  &&\
 #Setup redis as non-root
 RUN mkdir /home/taky/redis/
 RUN wget https://download.redis.io/releases/redis-6.2.3.tar.gz 
-RUN tar -xf /home/taky/redis/redis-6.2.3.tar.gz  
+RUN cp redis-6.2.3.tar.gz /home/taky/redis/
+RUN cd /home/taky/redis/ && tar -xf redis-6.2.3.tar.gz  
 RUN cd /home/taky/redis/redis-6.2.3 && make 
 
 #Ports
