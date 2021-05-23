@@ -27,4 +27,4 @@ source env.sh
 
 #Starting taky
 echo "Starting taky as taky user"
-"taky -c /data/conf/taky.conf -l debug
+taky -c /data/conf/taky.conf -l debug
