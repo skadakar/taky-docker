@@ -18,8 +18,8 @@ if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
 	crudini --set $REDIS_CONF daemonize yes
-  crudini --set $REDIS_CONF dir /data/database
-  crudini --set $REDIS_CONF logfile /data/logs/redis.log
+  	crudini --set $REDIS_CONF dir /data/database
+	crudini --set $REDIS_CONF logfile /data/logs/redis.log
 fi
 
 #Env handling
