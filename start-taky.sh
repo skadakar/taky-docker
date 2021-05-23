@@ -20,7 +20,7 @@ else
 	crudini --set $REDIS_CONF daemonize yes
   	crudini --set $REDIS_CONF dir /data/database
 	crudini --set $REDIS_CONF logfile /data/logs/redis.log
-	/home/taky/redis/redis-6.2.3/src/./redis-server 
+	/home/taky/redis/redis-6.2.3/src/./redis-server &
 fi
 
 #Env handling
