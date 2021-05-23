@@ -17,7 +17,7 @@ if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
 	#do nerdshit here
-	echo "poop"
+	redis-server --daemonize yes
 fi
 
 #Env handling
