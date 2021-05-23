@@ -13,13 +13,14 @@ echo "Resetting config file"
 cp -f /taky.conf /data/conf/taky.conf
 
 #redis
-REDIS_CONF=/data/conf/taky.conf
+REDIS_CONF=/home/taky/redis/redis-6.2.3/redis.conf
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
 	crudini --set $REDIS_CONF daemonize yes
   	crudini --set $REDIS_CONF dir /data/database
 	crudini --set $REDIS_CONF logfile /data/logs/redis.log
+	/home/taky/redis/redis-6.2.3/src/./redis-server 
 fi
 
 #Env handling
