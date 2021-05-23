@@ -13,15 +13,10 @@ echo "Resetting config file"
 cp -f /taky.conf /data/conf/taky.conf
 
 #redis
-REDIS_CONF=/home/taky/redis/redis-6.2.3/redis.conf
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
-	sed -i 's/daemonize\=no/daemonize\=yes/g' $REDIS_CONF
-	sed -i 's/dir .\//\/data\/database/g' $REDIS_CONF
-	#add logfil?
-	#sed -i 's/A/B/g' $REDIS_CONF
-	runuser taky -c "/home/taky/redis/redis-6.2.3/src/./redis-server /home/taky/redis/redis-6.2.3/redis.conf"
+#do nerdshit here
 fi
 
 #Env handling
@@ -31,4 +26,4 @@ source env.sh
 
 #Starting taky
 echo "Starting taky as taky user"
-runuser taky -c "taky -c /data/conf/taky.conf -l debug"
+"taky -c /data/conf/taky.conf -l debug
