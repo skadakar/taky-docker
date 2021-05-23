@@ -6,7 +6,7 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil redis gunicorn git crudini
+RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn git crudini
 
 RUN pip3 install flask &&\
     pip3 install pyopenssl
@@ -24,12 +24,13 @@ RUN cd /taky && python3 ./setup.py install
 #Setup user
 RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
-#Redis data + logs
-RUN sed -i 's/dir \/var\/lib\/redis/dir \/data\/database/g' /etc/redis/redis.conf
-RUN sed -i 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/data\/logs/g' /etc/redis/redis.conf
 
-RUN sed -i 's/User\=redis/User\=taky/g' /usr/lib/systemd/system/redis-server.service
-RUN sed -i 's/Group\=taky/Group\=taky/g' /usr/lib/systemd/system/redis-server.service
+#Setup redis as non-root
+RUN mkdir /home/taky/redis/ &&\
+    wget https://download.redis.io/releases/redis-6.2.3.tar.gz &&\
+    tar -xf redis-6.2.3.tar.gz  &&\
+    cd redis-6.2.3.tar &&\
+    make 
 
 #Ports
 EXPOSE 8087
