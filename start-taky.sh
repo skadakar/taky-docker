@@ -17,10 +17,11 @@ REDIS_CONF=/home/taky/redis/redis-6.2.3/redis.conf
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
-	crudini --set $REDIS_CONF daemonize yes
-  	crudini --set $REDIS_CONF dir /data/database
-	crudini --set $REDIS_CONF logfile /data/logs/redis.log
-	runuser taky -c "/home/taky/redis/redis-6.2.3/src/./redis-server /home/taky/redis/redis-6.2.3/redis.conf &"
+	sed -i 's/daemonize\=no/daemonize\=yes/g' $REDIS_CONF
+	sed -i 's/dir .\//\/data\/database/g' $REDIS_CONF
+	#add logfil?
+	#sed -i 's/A/B/g' $REDIS_CONF
+	runuser taky -c "/home/taky/redis/redis-6.2.3/src/./redis-server /home/taky/redis/redis-6.2.3/redis.conf"
 fi
 
 #Env handling
