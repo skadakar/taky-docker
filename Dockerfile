@@ -26,10 +26,10 @@ RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 #Setup redis as non-root
-RUN mkdir /home/taky/redis/ &&\
+RUN mkdir /home/taky/redis/
     wget https://download.redis.io/releases/redis-6.2.3.tar.gz &&\
     tar -xf redis-6.2.3.tar.gz  &&\
-    cd redis-6.2.3.tar &&\
+    cd redis-6.2.3 &&\
     make 
 
 #Ports
