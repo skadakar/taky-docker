@@ -10,28 +10,35 @@ Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatev
 
 Supported env variables:
 
-| TAKY|||
-|-----|----|----|
-||hostname||
-||node_id||
-||bind_ip|
-||public_ip|
-||public_ip|true/false|
-| COT SERVER||
-||port
-||cot_log
-|| DATAPACKAGE SERVER||
-||upload_path
-| SSL||
-||ssl_enabled|true/false|
-||client_cert_required|true/false|
-||cert|
-||key|
-||key_pw|
-||ca|
-||ca_key|
-||server_p12|
-||server_p12_key|
+TAKY
+|Variable|Type|
+|-----|----|
+|hostname||
+|node_id||
+|bind_ip|
+|public_ip|
+|public_ip|bool|
+
+COT SERVER
+|Variable|Type|
+|-----|----|
+|port
+|cot_log
+| DATAPACKAGE SERVER||
+|upload_path
+
+SSL
+|Variable|Type|
+|-----|----|
+|ssl_enabled|bool|
+|client_cert_required|bool|
+|cert|
+|key|
+|key_pw|
+|ca|
+|ca_key|
+|server_p12|
+|server_p12_key|
 
 If not specified it will use the content of taky.conf
 This will default to use /data/ for saving data.
