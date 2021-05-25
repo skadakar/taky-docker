@@ -1,21 +1,22 @@
+# Taky docker image
 Docker image for this project https://github.com/tkuester/taky
 
-Example run command:
 
 Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
+
+Example run command:
 ```
 docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8087:8087 -p 8089:8089 -d --name Taky skadakar/taky:latest
 ```
 
-Supported env variables:
 
 If not specified it will use the content of taky.conf
 
 This will default to use /data/ for saving data.
 
 
-
-TAKY
+Supported env variables:
+### TAKY
 |Variable|Type|
 |-----|----|
 |hostname||
@@ -23,16 +24,14 @@ TAKY
 |bind_ip|
 |public_ip|
 |public_ip|bool|
-
-COT SERVER
+### COT SERVER
 |Variable|Type|
 |-----|----|
 |port
 |cot_log
 | DATAPACKAGE SERVER||
 |upload_path
-
-SSL
+### SSL
 |Variable|Type|
 |-----|----|
 |ssl_enabled|bool|
