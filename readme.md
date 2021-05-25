@@ -24,6 +24,8 @@ Supported env variables:
 |bind_ip|
 |public_ip|
 |public_ip|bool|
+|redis|bool or connection string|
+
 ### COT SERVER
 |Variable|Type|
 |-----|----|
