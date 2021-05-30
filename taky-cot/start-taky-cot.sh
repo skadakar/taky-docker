@@ -5,7 +5,6 @@ chown -R taky:taky /etc/taky
 
 
 echo "Preparing folder structure"
-mkdir -p /etc/taky
 mkdir -p /data/conf
 mkdir -p /data/ssl
 mkdir -p /data/logs
