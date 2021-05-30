@@ -12,11 +12,11 @@ Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatev
 
 Example for COT:
 ```
-docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8087:8087 -p 8089:8089 -d --name taky-cot skadakar/taky:cot-latest
+docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-cot:/data -p 8087:8087 -p 8089:8089 -d --name taky-cot skadakar/taky:cot-latest
 ```
 Example for Data
 ```
-docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8080:8080 -d --name taky-data skadakar/taky:data-latest
+docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-dps:/data -p 8080:8080 -d --name taky-data skadakar/taky:data-latest
 ```
 If not specified it will use the content of taky.conf
 
