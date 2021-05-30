@@ -7,7 +7,7 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -y python3 python3-pip curl 
+RUN apt-get install -y python3 python3-pip wget 
 RUN pip3 install pyopenssl 
 
 COPY /taky-certgen/make-cert.sh /make-cert.sh
