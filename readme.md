@@ -1,8 +1,13 @@
-# Taky docker image
-Project https://github.com/tkuester/taky
+## Project 
 
-Images: https://hub.docker.com/r/skadakar/taky
+https://github.com/tkuester/taky
 
+## Images: 
+
+https://hub.docker.com/r/skadakar/taky
+
+
+## Use
 Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
 
 Example run command:
@@ -15,8 +20,9 @@ If not specified it will use the content of taky.conf
 
 This will default to use /data/ for saving data.
 
+*  *  *  *  *
 
-Supported env variables:
+### Supported env variables:
 ### TAKY
 |Variable|Type|
 |-----|----|
