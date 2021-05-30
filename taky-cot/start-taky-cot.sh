@@ -14,7 +14,7 @@ echo "Resetting config file"
 cp -f /taky.conf /data/conf/taky.conf
 
 #SSL
-if [ -z "${redis}" ]; then
+if [ -z "${ssl_enabled}" ]; then
 	echo "No SSL configured"
 else
 	echo "Starting with SSL, if no certs are provided new ones will be made"
