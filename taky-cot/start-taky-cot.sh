@@ -21,13 +21,14 @@ else
     		echo "Certs already configured, skipping."
 	else
 		echo "Generating certs for Taky"
-		echo "This is where the bug was!"
-		#cp /data/ssl/* /etc/taky/
-		#taky --user taky --public-ip ${public_ip} 
-		#cp /etc/taky/*.pem /data/ssl/
-		#cp /etc/taky/*.key /data/ssl/
-		#cp /etc/taky/*.key* /data/ssl/
-		#cp /etc/taky/*.p12 /data/ssl/
+		cp /data/ssl/* /etc/taky/
+		taky --user taky --public-ip ${public_ip} 
+		cp /etc/taky/*.pem /data/ssl/
+		cp /etc/taky/*.key /data/ssl/
+		cp /etc/taky/*.key* /data/ssl/
+		cp /etc/taky/*.p12 /data/ssl/
+	fi
+fi
 #redis
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
