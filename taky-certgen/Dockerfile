@@ -10,7 +10,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip curl 
 RUN pip3 install pyopenssl 
 
-COPY /taky-certgen/make-cert.sh /make-vert.sh
+COPY /taky-certgen/make-cert.sh /make-cert.sh
 
 VOLUME ["/data"]
 ENTRYPOINT ["/bin/bash", "/make-cert.sh"]
