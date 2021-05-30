@@ -478,9 +478,6 @@ if __name__ == '__main__':
                 IP = str(input("Enter IP address or FQDN that clients will use to connect to FTS: "))
                 aotc.bake(common_name=IP, cert="server")
                 server_p12 = f"./{IP}.p12"
-            copy_question = input("Would you like to copy the server certificate files where needed for FTS? y/n ")
-            if copy_question.lower() == "y":
-                aotc.copy_server_certs(server_name=IP)
         user_question = input("Would you like to generate a user certificate? y/n ")
         if user_question.lower() == "y":
             while True:
