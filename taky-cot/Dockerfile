@@ -10,7 +10,7 @@ RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn
 
 RUN pip3 install flask &&\
     pip3 install pyopenssl &&\
-    taky
+    pip3 install taky
 
 #Copy scripts
 COPY /common/env.sh /env.sh
