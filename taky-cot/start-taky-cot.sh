@@ -1,6 +1,7 @@
 #!/bin/sh
 echo "chownhack"
 chown -R taky:taky /data
+chown -R taky:taky /etc/taky
 
 
 echo "Preparing folder structure"
@@ -12,6 +13,12 @@ mkdir -p /data/database
 echo "Resetting config file"
 cp -f /taky.conf /data/conf/taky.conf
 
+#SSL
+if [ -z "${redis}" ]; then
+	echo "No SSL configured"
+else
+	echo "Starting with SSL, if no certs are provided new ones will be made"
+	taky --user taky --public-ip ${public_ip} 
 #redis
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
