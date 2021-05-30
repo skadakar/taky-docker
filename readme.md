@@ -54,3 +54,10 @@ This will default to use /data/ for saving data.
 |ca_key|
 |server_p12|
 |server_p12_key|
+*  *  *  *  *
+
+# TODO:
+
+SSL generation on startup?
+
+SSL generation as it's own thing? 
