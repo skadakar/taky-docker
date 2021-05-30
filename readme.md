@@ -10,12 +10,14 @@ https://hub.docker.com/r/skadakar/taky
 ## Use
 Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
 
-Example run command:
+Example for COT:
 ```
-docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8087:8087 -p 8089:8089 -d --name Taky skadakar/taky:latest
+docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8087:8087 -p 8089:8089 -d --name taky-cot skadakar/taky:cot-latest
 ```
-
-
+Example for Data
+```
+docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/takydata:/data -p 8080:8080 -d --name taky-data skadakar/taky:data-latest
+```
 If not specified it will use the content of taky.conf
 
 This will default to use /data/ for saving data.
