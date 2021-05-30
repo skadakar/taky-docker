@@ -27,7 +27,9 @@ source env.sh
 
 #Starting taky
 echo "Debug"
+echo " "
 echo "Running the following config"
-echo /data/conf/taky.conf
+cat /data/conf/taky.conf
+echo " "
 echo "Starting taky COT as taky user"
 taky -c /data/conf/taky.conf -l debug
