@@ -29,7 +29,7 @@ source env.sh
 echo "Debug"
 echo " "
 echo "Running the following config"
-cat /data/conf/taky.conf
+echo "$(cat /data/conf/taky.conf)"
 echo " "
 echo "Starting taky COT as taky user"
 taky -c /data/conf/taky.conf -l debug
