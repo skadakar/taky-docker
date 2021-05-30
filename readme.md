@@ -1,6 +1,7 @@
 # Taky docker image
-Docker image for this project https://github.com/tkuester/taky
+Project https://github.com/tkuester/taky
 
+Images: https://hub.docker.com/r/skadakar/taky
 
 Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
 
