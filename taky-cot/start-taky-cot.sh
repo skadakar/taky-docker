@@ -18,7 +18,12 @@ if [ -z "${redis}" ]; then
 	echo "No SSL configured"
 else
 	echo "Starting with SSL, if no certs are provided new ones will be made"
+	cp /data/ssl/* /etc/taky/
 	taky --user taky --public-ip ${public_ip} 
+	cp /etc/taky/*.pem /data/ssl/
+	cp /etc/taky/*.key /data/ssl/
+	cp /etc/taky/*.key* /data/ssl/
+	cp /etc/taky/*.p12 /data/ssl/
 #redis
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
