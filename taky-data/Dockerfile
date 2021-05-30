@@ -28,8 +28,7 @@ RUN addgroup --gid 1000 taky  &&\
 
 
 #Ports
-EXPOSE 8087
-EXPOSE 8089
+EXPOSE 8080
 
 VOLUME ["/data"]
 ENTRYPOINT ["/bin/bash", "/start-taky-data.sh"]

@@ -26,5 +26,5 @@ source env.sh
 
 
 #Starting taky
-echo "Starting taky as taky user"
+echo "Starting taky data package service as taky user"
 taky_dps -c /data/conf/taky.conf -l debug
