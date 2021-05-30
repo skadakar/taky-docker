@@ -17,7 +17,7 @@ cp -f /taky.conf /data/conf/taky.conf
 if [ -z "${ssl_enabled}" ]; then
 	echo "No SSL configured"
 else
-	if [ -f "/data/ssl/*.p12" ]; then
+	if [ -f "/data/ssl/server.p12" ]; then
     		echo "Certs already configured, skipping."
 	else
 		echo "Generating certs for Taky"
