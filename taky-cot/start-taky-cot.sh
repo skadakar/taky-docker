@@ -17,7 +17,6 @@ if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
 	#do nerdshit here
-	echo "Starting local redis, this is not ideal"
 	redis-server --daemonize yes
 fi
 
