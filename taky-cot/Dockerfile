@@ -16,9 +16,12 @@ RUN pip3 install flask &&\
 COPY /common/env.sh /env.sh
 COPY /taky-cot/start-taky-cot.sh /start-taky-cot.sh
 COPY /common/taky.conf /taky.conf
+
 #Folders
 RUN mkdir -p /etc/taky
 RUN chown 1000 /etc/taky && chgrp 1000 /etc/taky
+RUN mkdir -p /var/taky
+RUN chown 1000 /var/taky && chgrp 1000 /var/taky
 
 
 #Setup user
