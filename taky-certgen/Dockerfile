@@ -1,5 +1,5 @@
 #This is just to get https://github.com/lennisthemenace/ATAK-Certs into a docker image. 
-FROM 3.8.10-slim-buster
+FROM python:3.8.10-slim-buster
 
 # UTC because everything on a server should be UTC
 RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
