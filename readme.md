@@ -18,6 +18,11 @@ Example for Data
 ```
 docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-data:/data -p 8080:8080 -d --name taky-data skadakar/taky:data-latest
 ```
+Example for cert gen
+```
+docker run -e ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:certgen-latest
+```
+
 If not specified it will use the content of taky.conf
 
 This will default to use /data/ for saving data.
