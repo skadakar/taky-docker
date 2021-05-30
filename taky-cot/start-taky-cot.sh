@@ -2,6 +2,7 @@
 echo "chownhack"
 chown -R taky:taky /data
 chown -R taky:taky /etc/taky
+chown -R taky:taky /var/taky
 
 
 echo "Preparing folder structure"
@@ -22,7 +23,7 @@ else
 	else
 		echo "Generating certs for Taky"
 		cp /data/ssl/* /etc/taky/
-		taky --user taky --public-ip ${public_ip} 
+		takyctl setup --user 1000 --public-ip=${public_ip}
 		cp /etc/taky/*.pem /data/ssl/
 		cp /etc/taky/*.key /data/ssl/
 		cp /etc/taky/*.key* /data/ssl/
