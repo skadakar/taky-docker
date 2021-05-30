@@ -13,7 +13,7 @@ RUN pip3 install flask &&\
 
 #Copy scripts
 COPY common/env.sh /env.sh
-COPY taky-cot/start-taky.sh /start-taky.sh
+COPY taky-cot/start-taky-cot.sh /start-taky-cot.sh
 COPY common/taky.conf /taky.conf
 
 #Install Taky
