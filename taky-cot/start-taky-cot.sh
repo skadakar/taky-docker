@@ -23,12 +23,7 @@ else
 	else
 		echo "Generating certs for Taky"
 		takyctl setup --public-ip=${public_ip}
-		ls /etc/taky
-		ls /etc/taky/ssl
-		cp /etc/taky/ssl/*.pem /data/ssl/
-		cp /etc/taky/ssl/*.key /data/ssl/
-		cp /etc/taky/ssl/*.key* /data/ssl/
-		cp /etc/taky/ssl/*.p12 /data/ssl/
+		cp /etc/taky/ssl/* /data/ssl/
 	fi
 fi
 #redis
