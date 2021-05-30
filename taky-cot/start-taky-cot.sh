@@ -23,10 +23,12 @@ else
 	else
 		echo "Generating certs for Taky"
 		takyctl setup --public-ip=${public_ip}
-		cp /etc/taky/*.pem /data/ssl/
-		cp /etc/taky/*.key /data/ssl/
-		cp /etc/taky/*.key* /data/ssl/
-		cp /etc/taky/*.p12 /data/ssl/
+		ls /etc/taky
+		ls /etc/taky/ssl
+		cp /etc/taky/ssl/*.pem /data/ssl/
+		cp /etc/taky/ssl/*.key /data/ssl/
+		cp /etc/taky/ssl/*.key* /data/ssl/
+		cp /etc/taky/ssl/*.p12 /data/ssl/
 	fi
 fi
 #redis
@@ -43,10 +45,10 @@ source env.sh
 
 
 #Starting taky
-echo "Debug"
-echo " "
-echo "Running the following config"
-echo "$(cat /data/conf/taky.conf)"
-echo " "
+#echo "Debug"
+#echo " "
+#echo "Running the following config"
+#echo "$(cat /data/conf/taky.conf)"
+#echo " "
 echo "Starting taky COT as taky user"
 taky -c /data/conf/taky.conf -l debug
