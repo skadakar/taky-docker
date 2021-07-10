@@ -30,11 +30,11 @@ This will default to use /data/ for saving data.
 *  *  *  *  *
 
 ### Supported env variables:
-### Image mode
-Let's us maintain only one image doing multiple roles.
+### Mode
 |Variable|Value|
 |-----|----|
 |Mode|cot/data/certgen|
+This lets you decide what service to start while only needing one image, adhering to taky's structure and clean docker implementation practice. 
 
 ### TAKY
 |Variable|Type|
