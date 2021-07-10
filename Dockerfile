@@ -12,7 +12,7 @@ RUN pip3 install pyopenssl requests flask taky
 
 
 COPY /common/env.sh /env.sh
-COPY /taky-cot/start-taky-cot.sh /start-taky-cot.sh
+COPY /common/start-taky-cot.sh /start-taky-cot.sh
 COPY /common/start-taky-data.sh /start-taky-data.sh
 COPY /common/start-taky-certgen.sh /start-taky-certgen.sh
 COPY /common/hackofthecert.py /hackofthecert.py
