@@ -30,6 +30,11 @@ This will default to use /data/ for saving data.
 *  *  *  *  *
 
 ### Supported env variables:
+### Image mode
+Let's us maintain only one image doing multiple roles.
+|Variable||
+|Mode|cot/data/certgen|
+
 ### TAKY
 |Variable|Type|
 |-----|----|
