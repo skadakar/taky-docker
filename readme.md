@@ -20,7 +20,7 @@ docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root
 ```
 Example for cert gen
 ```
-docker run -e public_ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:certgen-latest
+docker run -e public_ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:unified-latest
 ```
 
 If not specified it will use the content of taky.conf
