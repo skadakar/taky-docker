@@ -33,6 +33,7 @@ This will default to use /data/ for saving data.
 ### Image mode
 Let's us maintain only one image doing multiple roles.
 |Variable|Value|
+|-----|----|
 |Mode|cot/data/certgen|
 
 ### TAKY
