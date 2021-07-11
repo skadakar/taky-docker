@@ -1,6 +1,11 @@
 #!/bin/sh
 # This script detects the mode the image is running in and starts the relevant service.
 
+echo "Creating needed folder structure for Taky to work"
+chown -R taky:taky /data
+chown -R taky:taky /etc/taky
+chown -R taky:taky /var/taky
+
 #Check if mode is selected:
     if [ -z "${mode}" ]; then
         echo "No mode selected, see readme";
