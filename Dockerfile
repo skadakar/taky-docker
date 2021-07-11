@@ -23,7 +23,8 @@ RUN mkdir -p /etc/taky
 RUN chown 1000 /etc/taky && chgrp 1000 /etc/taky
 RUN mkdir -p /var/taky
 RUN chown 1000 /var/taky && chgrp 1000 /var/taky
-RUN chown 1000 /common && chgrp 1000 /common
+#To run common scripts
+RUN chown 1000 -R /common && chgrp 1000 -R /common
 
 #Setup user
 RUN addgroup --gid 1000 taky  &&\
