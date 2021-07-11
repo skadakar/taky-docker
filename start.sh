@@ -11,7 +11,6 @@
         if [[ "$mode" == "certgen" ]]; then
             echo "Starting certgen";
             /common/start-taky-certgen.sh
-            
         fi
     #Checks for COT mode:
         #COT
