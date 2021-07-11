@@ -8,7 +8,7 @@ https://hub.docker.com/r/skadakar/taky
 
 
 ## Use
-Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
+Use -u 1000:1000 to avoid running as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
 
 Example for COT:
 ```
@@ -18,7 +18,7 @@ Example for Data
 ```
 docker run -u 1000:1000 -e mode=data -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-data:/data -p 8080:8080 -d --name taky-data skadakar/taky:unified
 ```
-Example for cert gen
+Example for cert gen (depricated soon i hope)
 ```
 docker run -e mode=certgen -e public_ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:unified
 ```
