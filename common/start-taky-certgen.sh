@@ -2,7 +2,7 @@
 echo "IP = ${ip}"
 echo "Password = ${password}"
 echo "Running ATAK of the cert"
-chomd -x /hackofthecert.py
+chomd -x /common/hackofthecert.py
 yes | python3 hackofthecert.py - -c -i ${public_ip}
 cp *.p12 /data/ssl/
 cp *.pem /data/ssl/
