@@ -10,18 +10,18 @@
         #Certgen
         if [[ "$mode" == "certgen" ]]; then
             echo "Starting certgen";
-            ./common/start-taky-certgen.sh
+            source /common/start-taky-certgen.sh
         fi
     #Checks for COT mode:
         #COT
         if [[ "$mode" == "cot" ]]; then
             echo "Starting COT Server";
-            ./common/start-taky-cot.sh
+            source /common/start-taky-cot.sh
         fi
     #Checks for datapackage service mode:
         #Data
         if [[ "$mode" == "data" ]]; then
             echo "Starting Datapacakage Server";
-            ./common/start-taky-data.sh
+            source /common/start-taky-data.sh
         fi    
     fi
