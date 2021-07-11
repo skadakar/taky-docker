@@ -1,10 +1,4 @@
 #!/bin/sh
-echo "chownhack"
-chown -R taky:taky /data
-chown -R taky:taky /etc/taky
-chown -R taky:taky /var/taky
-
-
 echo "Preparing folder structure"
 mkdir -p /data/conf
 mkdir -p /data/ssl
