@@ -40,20 +40,21 @@ This lets you decide what service to start while only needing one image, adherin
 ### TAKY
 |Variable|Type|
 |-----|----|
-|hostname||
-|node_id||
-|bind_ip|
-|public_ip|
+|hostname|string|
+|node_id||string|
+|bind_ip|string|
+|public_ip|string|
 |public_ip|bool|
 |redis|bool or connection string|
 
 ### COT SERVER
 |Variable|Type|
 |-----|----|
-|port
-|cot_log
-| DATAPACKAGE SERVER||
-|upload_path
+|port|num|
+|cot_log|string|
+### DATAPACKAGE SERVER
+|Variable|Type|
+|upload_path|string|
 ### SSL
 |Variable|Type|
 |-----|----|
