@@ -10,8 +10,6 @@ mkdir -p /data/logs
 mkdir -p /data/upload
 mkdir -p /data/upload/meta
 mkdir -p /data/database
-echo "Resetting config file"
-cp -f /taky.conf /data/conf/taky.conf
 
 #redis
 if [ -z "${redis}" ]; then
@@ -20,11 +18,6 @@ else
 	#do nerdshit here
 	redis-server --daemonize yes
 fi
-
-#Env handling
-echo "Adding variables to relevant config files"
-source env.sh
-
 
 #Starting taky
 echo "Debug"
