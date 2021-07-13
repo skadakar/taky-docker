@@ -5,8 +5,6 @@ mkdir -p /data/ssl
 mkdir -p /data/logs
 mkdir -p /data/upload
 mkdir -p /data/database
-echo "Resetting config file"
-cp -f /taky.conf /data/conf/taky.conf
 
 #SSL
 if [ -z "${ssl_enabled}" ]; then
@@ -27,11 +25,6 @@ else
 	#do nerdshit here
 	redis-server --daemonize yes
 fi
-
-#Env handling
-echo "Adding variables to relevant config files"
-source env.sh
-
 
 #Starting taky
 #echo "Debug"
