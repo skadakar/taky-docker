@@ -52,9 +52,12 @@ This lets you decide what service to start while only needing one image, adherin
 |-----|----|
 |port|num|
 |cot_log|string|
+
 ### DATAPACKAGE SERVER
 |Variable|Type|
+|-----|----|
 |upload_path|string|
+
 ### SSL
 |Variable|Type|
 |-----|----|
@@ -71,6 +74,4 @@ This lets you decide what service to start while only needing one image, adherin
 
 # TODO:
 
-SSL generation on startup?
- 
-SSL generation as it's own thing? 
+Not sure.. make an issue? 
