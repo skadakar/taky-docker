@@ -6,6 +6,10 @@ chown -R taky:taky /data
 chown -R taky:taky /etc/taky
 chown -R taky:taky /var/taky
 
+
+echo "Resetting config file"
+cp -f /taky.conf /data/conf/taky.conf
+echo "Adding env variables"
 #Env variable handling
 source /common/env.sh
 
