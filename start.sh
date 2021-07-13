@@ -6,6 +6,9 @@ chown -R taky:taky /data
 chown -R taky:taky /etc/taky
 chown -R taky:taky /var/taky
 
+#Env variable handling
+source /common/env.sh
+
 #Check if mode is selected:
     if [ -z "${mode}" ]; then
         echo "No mode selected, see readme";
