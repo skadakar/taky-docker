@@ -44,7 +44,6 @@ This lets you decide what service to start while only needing one image, adherin
 |node_id||string|
 |bind_ip|string|
 |public_ip|string|
-|public_ip|bool|
 |redis|bool or connection string|
 
 ### COT SERVER
