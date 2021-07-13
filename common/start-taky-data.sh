@@ -8,6 +8,7 @@ mkdir -p /data/conf
 mkdir -p /data/ssl
 mkdir -p /data/logs
 mkdir -p /data/upload
+mkdir -p /data/upload/meta
 mkdir -p /data/database
 echo "Resetting config file"
 cp -f /taky.conf /data/conf/taky.conf
