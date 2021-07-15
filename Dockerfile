@@ -10,12 +10,12 @@ RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn git crudini redis-server wget
 RUN pip3 install pyopenssl requests flask taky
 
-
-COPY /common/env.sh /env.sh
-COPY /taky-cot/start-taky-cot.sh /start-taky-cot.sh
-COPY /common/start-taky-data.sh /start-taky-data.sh
-COPY /common/start-taky-certgen.sh /start-taky-certgen.sh
-COPY /common/hackofthecert.py /hackofthecert.py
+COPY /start.sh /start.sh
+COPY /common/env.sh /common/env.sh
+COPY /common/start-taky-cot.sh /common/start-taky-cot.sh
+COPY /common/start-taky-data.sh /common/start-taky-data.sh
+COPY /common/start-taky-certgen.sh /common/start-taky-certgen.sh
+COPY /common/hackofthecert.py /common/hackofthecert.py
 COPY /common/taky.conf /taky.conf
 
 #Folders
@@ -23,6 +23,8 @@ RUN mkdir -p /etc/taky
 RUN chown 1000 /etc/taky && chgrp 1000 /etc/taky
 RUN mkdir -p /var/taky
 RUN chown 1000 /var/taky && chgrp 1000 /var/taky
+#To run common scripts
+RUN chown 1000 -R /common && chgrp 1000 -R /common
 
 #Setup user
 RUN addgroup --gid 1000 taky  &&\

@@ -8,19 +8,19 @@ https://hub.docker.com/r/skadakar/taky
 
 
 ## Use
-Use -u 1000:1000 to to run as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
+Use -u 1000:1000 to avoid running as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
 
 Example for COT:
 ```
-docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-cot:/data -p 8087:8087 -p 8089:8089 -d --name taky-cot skadakar/taky:cot-latest
+docker run -u 1000:1000 -e mode=cot -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-cot:/data -p 8087:8087 -p 8089:8089 -d --name taky-cot skadakar/takt:unified
 ```
 Example for Data
 ```
-docker run -u 1000:1000 -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-data:/data -p 8080:8080 -d --name taky-data skadakar/taky:data-latest
+docker run -u 1000:1000 -e mode=data -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-data:/data -p 8080:8080 -d --name taky-data skadakar/taky:unified
 ```
-Example for cert gen
+Example for cert gen (depricated soon i hope)
 ```
-docker run -e public_ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:unified-latest
+docker run -e mode=certgen -e public_ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:unified
 ```
 
 If not specified it will use the content of taky.conf
@@ -30,28 +30,33 @@ This will default to use /data/ for saving data.
 *  *  *  *  *
 
 ### Supported env variables:
-### Image mode
-Let's us maintain only one image doing multiple roles.
-|Variable||
+### Mode
+|Variable|Value|
+|-----|----|
 |Mode|cot/data/certgen|
+ 
+This lets you decide what service to start while only needing one image, adhering to taky's structure and clean docker implementation practice. 
 
 ### TAKY
 |Variable|Type|
 |-----|----|
-|hostname||
-|node_id||
-|bind_ip|
-|public_ip|
-|public_ip|bool|
+|hostname|string|
+|node_id||string|
+|bind_ip|string|
+|public_ip|string|
 |redis|bool or connection string|
 
 ### COT SERVER
 |Variable|Type|
 |-----|----|
-|port
-|cot_log
-| DATAPACKAGE SERVER||
-|upload_path
+|port|num|
+|cot_log|string|
+
+### DATAPACKAGE SERVER
+|Variable|Type|
+|-----|----|
+|upload_path|string|
+
 ### SSL
 |Variable|Type|
 |-----|----|
@@ -68,6 +73,4 @@ Let's us maintain only one image doing multiple roles.
 
 # TODO:
 
-SSL generation on startup?
- 
-SSL generation as it's own thing? 
+Not sure.. make an issue? 
