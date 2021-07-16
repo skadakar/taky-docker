@@ -30,6 +30,10 @@ RUN chown 1000 -R /common && chgrp 1000 -R /common
 RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
+#Temp hack waiting for 0.8.2
+RUN sed -i '127s/client.send_event(msg)/client.send(msg)/' /usr/local/lib/python3.8/dist-packages/taky/cot/router.py
+
+
 #Ports
 EXPOSE 8087
 EXPOSE 8089
