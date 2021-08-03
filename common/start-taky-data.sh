@@ -20,10 +20,10 @@ else
 fi
 
 #Starting taky
-echo "Debug"
-echo " "
-echo "Running the following config"
-echo "$(cat /data/conf/taky.conf)"
-echo " "
+#echo "Debug"
+#echo " "
+#echo "Running the following config"
+#echo "$(cat /data/conf/taky.conf)"
+#echo " "
 echo "Starting taky data package service as taky user"
 taky_dps -c /data/conf/taky.conf -l debug
