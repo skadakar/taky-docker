@@ -53,12 +53,20 @@ else
 	crudini --set $CONFY cot_server port ${port}
 fi
 
+#log_cot
+if [ -z "${log_cot}" ]; then
+	echo "Using default log_cot"
+else
+	echo "Setting log_cot to ${cot_log}"
+	crudini --set $CONFY cot_server log_cot ${log_cot}
+fi
+
 #cot_log
 if [ -z "${cot_log}" ]; then
 	echo "Using default log_cot"
 else
 	echo "Setting log_cot to ${cot_log}"
-	crudini --set $CONFY cot_server log_cot ${cot_log}
+	crudini --set $CONFY cot_server cot_log ${cot_log}
 fi
 
 #DATAPACKAGE SERVER
