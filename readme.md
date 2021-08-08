@@ -50,8 +50,8 @@ This lets you decide what service to start while only needing one image, adherin
 |Variable|Type|
 |-----|----|
 |port|num|
-|log_cot|bool|
-|cot_log|string|
+|log_cot|string(path)|
+|cot_log|bool|
 
 ### DATAPACKAGE SERVER
 |Variable|Type|
