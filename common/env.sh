@@ -2,15 +2,6 @@
 #
 CONFY=/data/conf/taky.conf
 
-#Ugly hacks go here
-#FQDN Override
-if [ -z "${fqdnoverride}" ]; then
-	echo "No FQDN Override active"
-else
-	echo "Setting FQDN for datapackages to ${fqdnoverride}"
-        sed -i '19s/.*/\ \ \ \ return f\"${fqdnoverride}\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
-fi
-
 #TAKY
 #hostname
 if [ -z "${hostname}" ]; then
