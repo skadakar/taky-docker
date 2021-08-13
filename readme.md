@@ -76,3 +76,14 @@ This lets you decide what service to start while only needing one image, adherin
 ## Non standard operators
 
 fqdnoverride takes sub.domain.org:1234 as input, this lets you have datapackages go on custom ports and domains.
+
+## Current hacks
+
+Hotfix for 0.8.1 bug in geochat 
+
+SSL/TCP for datapackages is hacked in the start.sh
+
+FQDN override for datapackages should not be needed in the future
+
+
+
