@@ -19,6 +19,7 @@ COPY /common/hackofthecert.py /common/hackofthecert.py
 COPY /common/taky.conf /taky.conf
 
 #Folders
+RUN chown 1000 /usr/local/lib/python3.8/dist-packages/taky && chgrp 1000 /usr/local/lib/python3.8/dist-packages/taky
 RUN mkdir -p /etc/taky
 RUN chown 1000 /etc/taky && chgrp 1000 /etc/taky
 RUN mkdir -p /var/taky
