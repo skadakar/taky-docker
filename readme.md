@@ -57,6 +57,7 @@ This lets you decide what service to start while only needing one image, adherin
 |Variable|Type|
 |-----|----|
 |upload_path|string|
+|fqdnoverride|string|
 
 ### SSL
 |Variable|Type|
