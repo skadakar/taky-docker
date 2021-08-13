@@ -38,10 +38,14 @@ source /common/env.sh
             if [ -z "${fqdnoverride}" ]; then
                 echo "No FQDN Override active"
             else
-                echo "Setting FQDN for datapackages to ${fqdnoverride}"
-                sed -i '19s/.*/\ \ \ \ return f\"'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
+                if [ "$ssl_enabled" = true ] ; then
+                    echo "Setting override for SSL use"
+                    sed -i '19s/.*/\ \ \ \ return f\"https:\/\/'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
+                else
+                    echo "Setting override for TCP use"
+                    sed -i '19s/.*/\ \ \ \ return f\"'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
+                fi
             fi
-
             echo "Starting Datapacakage Server";
             source /common/start-taky-data.sh
         fi    
