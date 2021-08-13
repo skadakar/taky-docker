@@ -73,6 +73,5 @@ This lets you decide what service to start while only needing one image, adherin
 |server_p12_key|
 *  *  *  *  *
 
-# TODO:
-
-Not sure.. make an issue? 
+#Non standard operators
+fqdnoverride takes sub.domain.org:1234 as input, this lets you have datapackages go on custom ports and domains.
