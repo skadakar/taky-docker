@@ -35,7 +35,7 @@ RUN addgroup --gid 1000 taky  &&\
 #Temp hack waiting for 0.8.2
 RUN sed -i '127s/client.send_event(msg)/client.send(msg)/' /usr/local/lib/python3.8/dist-packages/taky/cot/router.py
 # Letting people know it's a docker image for complaining
-RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image\: skdakar\\taky:latest\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
+RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\taky:latest\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
 
 
 
