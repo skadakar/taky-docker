@@ -55,19 +55,20 @@ fi
 
 #log_cot
 if [ -z "${log_cot}" ]; then
-	echo "Using default log_cot"
+	echo "Using default cot log path"
 else
 	echo "Setting log_cot to ${cot_log}"
 	crudini --set $CONFY cot_server log_cot ${log_cot}
 fi
 
 #cot_log
-if [ -z "${cot_log}" ]; then
-	echo "Using default log_cot"
+if [ "$cot_log" = true ] ; then
+    echo "Setting log_cot to ${cot_log}"
+    crudini --set $CONFY cot_server cot_log ${cot_log}
 else
-	echo "Setting log_cot to ${cot_log}"
-	crudini --set $CONFY cot_server cot_log ${cot_log}
+    echo "Cot logging disabled"
 fi
+
 
 #DATAPACKAGE SERVER
 #upload_path
@@ -80,19 +81,20 @@ fi
 
 #SSL
 #ssl_enabled
-if [ -z "${ssl_enabled}" ]; then
-	echo "Using default ssl_enabled"
-else
+
+if [ "$ssl_enabled" = true ] ; then
 	echo "Setting ssl_enabled to ${ssl_enabled}"
 	crudini --set $CONFY ssl enabled ${ssl_enabled}
+else
+	echo "SSL not enabled"
 fi
 
 #client_cert_required
-if [ -z "${client_cert_required}" ]; then
-	echo "Using default client_cert_required"
-else
+if [ "$client_cert_required" = true ] ; then
 	echo "Setting client_cert_required to ${client_cert_required}"
 	crudini --set $CONFY ssl client_cert_required ${client_cert_required}
+else
+	echo "Using default client_cert_required"
 fi
 
 #cert
