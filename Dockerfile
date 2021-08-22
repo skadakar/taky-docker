@@ -7,8 +7,11 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn git crudini redis-server wget iputils-ping nmap
+RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn git crudini redis-server wget
 RUN pip3 install pyopenssl requests flask taky
+
+#Debug tooling
+RUN apt-get install -yiputils-ping nmap netcat
 
 COPY /start.sh /start.sh
 COPY /common/env.sh /common/env.sh
@@ -36,11 +39,6 @@ RUN addgroup --gid 1000 taky  &&\
 RUN sed -i '127s/client.send_event(msg)/client.send(msg)/' /usr/local/lib/python3.8/dist-packages/taky/cot/router.py
 # Letting people know it's a docker image for complaining
 RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\/taky:latest\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
-
-
-
-
-
 
 #Ports
 EXPOSE 8087
