@@ -11,7 +11,7 @@ RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn
 RUN pip3 install pyopenssl requests flask taky
 
 #Debug tooling
-RUN apt-get install -yiputils-ping nmap netcat
+RUN apt-get install -y iputils-ping nmap netcat
 
 COPY /start.sh /start.sh
 COPY /common/env.sh /common/env.sh
