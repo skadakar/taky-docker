@@ -1,4 +1,5 @@
-name: Build and Publish Release Docker Image
+name: Manual push of version
+# SET VERSION IN BOTTOM!!!
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
