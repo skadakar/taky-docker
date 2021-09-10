@@ -79,8 +79,6 @@ fqdnoverride takes sub.domain.org:1234 as input, this lets you have datapackages
 
 ## Current hacks
 
-Hotfix for 0.8.1 bug in geochat 
-
 FQDN override for datapackages should not be needed in the future
 
 SSL/TCP for datapackages is hacked in the in start.sh for FQDN override.
