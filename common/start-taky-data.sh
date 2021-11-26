@@ -12,12 +12,12 @@ mkdir -p /data/upload/meta
 mkdir -p /data/database
 
 #redis
-if [ -z "${redis}" ]; then
-	echo "Using default redis (false)"
-else
-	#do nerdshit here
-	redis-server --daemonize yes
-fi
+#if [ -z "${redis}" ]; then
+#	echo "Using default redis (false)"
+#else
+#	#do nerdshit here
+#	redis-server --daemonize yes
+#fi
 
 #Starting taky
 #echo "Debug"
