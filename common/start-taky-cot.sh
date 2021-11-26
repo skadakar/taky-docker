@@ -22,8 +22,10 @@ fi
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
-	#do nerdshit here
-	redis-server --daemonize yes
+	if ${redis} == True; then
+		redis-server --daemonize yes
+	else
+		echo "Redis not True and not empty, assuming connection string."
 fi
 
 #Starting taky
