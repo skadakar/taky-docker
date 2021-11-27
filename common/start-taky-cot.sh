@@ -14,7 +14,7 @@ else
     		echo "Certs already configured, skipping."
 	else
 		echo "Generating certs for Taky"
-		takyctl setup --public-ip=${public_ip}
+		takyctl setup --server_address=${server_address}
 		cp /etc/taky/ssl/* /data/ssl/
 	fi
 fi
@@ -22,10 +22,11 @@ fi
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
-	if ${redis} == True; then
+	if ${redis} '==' True; then
 		redis-server --daemonize yes
 	else
 		echo "Redis not True and not empty, assuming connection string."
+	fi
 fi
 
 #Starting taky
