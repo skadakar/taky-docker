@@ -13,7 +13,7 @@ RUN pip3 install pyopenssl requests flask
 
 #RUN pip3 install taky
 RUN apt-get -y install git
-RUN git clone https://github.com/tkuester/taky && cd taky && taky $ python3 setup.py install
+RUN git clone https://github.com/tkuester/taky && taky $ python3 setup.py install
 
 #Debug tooling
 RUN apt-get -y install iputils-ping nmap netcat
