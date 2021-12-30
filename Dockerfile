@@ -42,5 +42,7 @@ RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} 
 EXPOSE 8087
 EXPOSE 8089
 EXPOSE 8080
+EXPOSE 8443
+
 VOLUME ["/data"]
 ENTRYPOINT ["/bin/bash", "/start.sh"]
