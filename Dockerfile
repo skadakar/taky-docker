@@ -1,4 +1,3 @@
-xxxx#This is just to get https://github.com/lennisthemenace/ATAK-Certs into a docker image. 
 FROM ubuntu:20.04
 
 # UTC because everything on a server should be UTC
