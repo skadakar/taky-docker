@@ -8,7 +8,8 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn gcc git crudini redis-server wget
-RUN pip3 install pyopenssl requests flask taky
+RUN pip3 install pyopenssl requests flask 
+RUN pip3 install taky
 
 #Debug tooling
 RUN apt-get install -y iputils-ping nmap netcat
