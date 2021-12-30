@@ -12,7 +12,10 @@ RUN pip install --upgrade pip
 RUN apt-get -y install build-essential libssl-dev libffi-dev python-dev git
 RUN apt-get -y install python3 python3-lxml python-dateutil gunicorn gcc git crudini redis-server wget
 
-RUN pip3 install pyopenssl requests flask 
+#One of these is failing to install.. 
+RUN pip3 install pyopenssl
+RUN pip3 install requests 
+RUN pip3 install flask 
 
 #RUN pip3 install taky
 RUN pip install git+https://github.com/tkuester/taky
