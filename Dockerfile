@@ -7,15 +7,15 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install build-essential libssl-dev libffi-dev python-dev
-RUN apt-get install python3 python3-pip python3-lxml python-dateutil gunicorn gcc git crudini redis-server wget
+RUN apt-get -y install build-essential libssl-dev libffi-dev python-dev
+RUN apt-get -y install python3 python3-pip python3-lxml python-dateutil gunicorn gcc git crudini redis-server wget
 RUN pip3 install pyopenssl requests flask 
 
 #RUN pip3 install taky
 RUN git clone https://github.com/tkuester/taky && cd taky && taky $ python3 setup.py install
 
 #Debug tooling
-RUN apt-get install iputils-ping nmap netcat
+RUN apt-get -y install iputils-ping nmap netcat
 
 COPY /start.sh /start.sh
 COPY /common/env.sh /common/env.sh
