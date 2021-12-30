@@ -12,6 +12,7 @@ RUN apt-get -y install python3 python3-pip python3-lxml python-dateutil gunicorn
 RUN pip3 install pyopenssl requests flask 
 
 #RUN pip3 install taky
+RUN apt-get -y install git
 RUN git clone https://github.com/tkuester/taky && cd taky && taky $ python3 setup.py install
 
 #Debug tooling
