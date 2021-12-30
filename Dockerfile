@@ -11,7 +11,7 @@ RUN apt-get install -y python3 python3-pip python3-lxml python-dateutil gunicorn
 RUN pip3 install pyopenssl requests flask taky
 
 #Debug tooling
-#RUN apt-get install -y iputils-ping nmap netcat
+RUN apt-get install -y iputils-ping nmap netcat
 
 COPY /start.sh /start.sh
 COPY /common/env.sh /common/env.sh
@@ -36,7 +36,7 @@ RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 # Letting people know it's a docker image for complaining
-RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\/taky:latest\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
+RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\/taky\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
 
 #Ports
 EXPOSE 8087
