@@ -7,6 +7,7 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
+RUN pip install --upgrade pip
 RUN apt-get -y install build-essential libssl-dev libffi-dev python-dev git
 RUN apt-get -y install python3 python3-pip python3-lxml python-dateutil gunicorn gcc git crudini redis-server wget
 RUN pip3 install pyopenssl requests flask 
