@@ -1,4 +1,4 @@
-#This is just to get https://github.com/lennisthemenace/ATAK-Certs into a docker image. 
+xxxx#This is just to get https://github.com/lennisthemenace/ATAK-Certs into a docker image. 
 FROM ubuntu:20.04
 
 # UTC because everything on a server should be UTC
@@ -17,8 +17,8 @@ RUN apt-get -y install python3 python3-lxml python-dateutil gunicorn gcc git cru
 RUN pip3 install requests 
 RUN pip3 install flask 
 
-#RUN pip3 install taky
-RUN pip install git+https://github.com/tkuester/taky
+RUN pip3 install taky
+#RUN pip install git+https://github.com/tkuester/taky
 
 #Debug tooling
 RUN apt-get -y install iputils-ping nmap netcat
