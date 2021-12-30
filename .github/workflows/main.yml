@@ -40,5 +40,5 @@ jobs:
         run: |
           docker buildx build \
           --tag skadakar/taky:latest \
-          --platform linux/amd64,linux/arm64/v6,linx/arm64/v7 . --push
+          --platform linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6 . --push
 
