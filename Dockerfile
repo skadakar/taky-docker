@@ -22,6 +22,7 @@ COPY /common/start-taky-certgen.sh /common/start-taky-certgen.sh
 COPY /common/hackofthecert.py /common/hackofthecert.py
 COPY /common/taky.conf /taky.conf
 
+
 #Folders
 RUN mkdir -p /etc/taky
 RUN chown 1000 /etc/taky && chgrp 1000 /etc/taky
