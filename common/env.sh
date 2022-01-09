@@ -5,10 +5,10 @@ CONFY=/data/conf/taky.conf
 #TAKY
 #hostname
 if [ -z "${server_address}" ]; then
-	echo "Using default hostname"
+	echo "Using default server address"
 else
 	echo "Setting server_address to ${server_address}"
-	crudini --set $CONFY taky hostname ${server_address}
+	crudini --set $CONFY taky server_address ${server_address}
 fi
 
 #node_id
