@@ -1,5 +1,7 @@
 FROM debian:bullseye
+
 #Add for psutils to download. 
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 RUN echo "deb http://ftp.de.debian.org/debian bullseye main"> /etc/apt/sources.list
 
 # UTC because everything on a server should be UTC
@@ -11,6 +13,7 @@ RUN apt-get -y upgrade
 
 #Required stuff
 RUN apt-get install -y python3
+RUN apt-get install -y wheel
 RUN apt-get install -y python3-setuptools
 RUN apt-get install -y python3-psutil
 RUN apt-get install -y python3-pip
