@@ -1,5 +1,5 @@
 FROM debian:bullseye
-
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 #Add for psutils to download. 
 RUN echo "deb http://ftp.de.debian.org/debian bullseye main"> /etc/apt/sources.list
 
@@ -10,8 +10,6 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 RUN apt-get -y update
 RUN apt-get -y upgrade
 
-
-RUN pip install cryptography==3.4.6 
 
 #Required stuff
 RUN apt-get install -y python3
@@ -24,6 +22,8 @@ RUN apt-get install -y gunicorn
 RUN apt-get install -y git
 RUN apt-get install -y crudini
 RUN apt-get install -y redis-server
+#Old crypt
+RUN pip install cryptography==3.4.6 
 
 #To sort out some dependency issues with cross platform building
 RUN apt-get install -y build-essential 
