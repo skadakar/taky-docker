@@ -6,13 +6,14 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -y python3 python-psutils python3-pip python3-lxml gunicorn git crudini redis-server wget
+RUN apt-get install -y python3 python-psutils python3-setuptools python3-psutil python3-pip python3-lxml gunicorn git crudini redis-server
+
 RUN pip3 install pyopenssl requests flask 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
 RUN python3 --version
 
 #Debug tooling
-RUN apt-get install -y iputils-ping nmap netcat
+RUN apt-get install -y iputils-ping nmap netcat wget
 
 COPY /start.sh /start.sh
 COPY /common/env.sh /common/env.sh
