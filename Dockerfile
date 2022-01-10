@@ -6,7 +6,7 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -y python3 python3-pip python3-lxml gunicorn git crudini redis-server wget
+RUN apt-get install -y python3 python-psutils python3-pip python3-lxml gunicorn git crudini redis-server wget
 RUN pip3 install pyopenssl requests flask 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
 RUN python3 --version
