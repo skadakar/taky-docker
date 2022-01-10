@@ -23,10 +23,10 @@ RUN apt-get install -y crudini
 RUN apt-get install -y redis-server
 
 #Old crypt requirements:
-#RUN pip3 install -y setuptools-rust
-#RUN pip3 install -y setuptools
-#RUN pip3 install -y wheel
-#RUN pip3 install -y cffi
+RUN pip3 install -y setuptools-rust
+RUN pip3 install -y setuptools
+RUN pip3 install -y wheel
+RUN pip3 install -y cffi
 #Old crypt
 RUN pip3 install cryptography==3.4.6 
 
