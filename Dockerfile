@@ -21,8 +21,14 @@ RUN apt-get install -y gunicorn
 RUN apt-get install -y git
 RUN apt-get install -y crudini
 RUN apt-get install -y redis-server
+
+#Old crypt requirements:
+#RUN pip3 install -y setuptools-rust
+#RUN pip3 install -y setuptools
+#RUN pip3 install -y wheel
+#RUN pip3 install -y cffi
 #Old crypt
-RUN pip install cryptography==3.4.6 
+RUN pip3 install cryptography==3.4.6 
 
 #To sort out some dependency issues with cross platform building
 RUN apt-get install -y build-essential 
