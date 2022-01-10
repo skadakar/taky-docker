@@ -24,12 +24,12 @@ RUN apt-get install -y redis-server
 RUN python3 -m pip install --upgrade pip
 
 #Old crypt requirements:
-RUN pip3 install -y setuptools-rust
-RUN pip3 install -y setuptools
-RUN pip3 install -y wheel
-RUN pip3 install -y cffi
+#RUN pip3 install -y setuptools-rust
+#RUN pip3 install -y setuptools
+#RUN pip3 install -y wheel
+#RUN pip3 install -y cffi
 #Old crypt
-RUN pip3 install cryptography==3.4.6 
+RUN pip3 install cryptography
 
 #To sort out some dependency issues with cross platform building
 RUN apt-get install -y build-essential 
