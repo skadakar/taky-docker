@@ -20,14 +20,11 @@ RUN pip3 install -U git+https://github.com/tkuester/taky@next
 #Debug tooling
 RUN apt-get install -y iputils-ping nmap netcat wget
 
-COPY /start.sh /start.sh
-COPY /common/env.sh /common/env.sh
-COPY /common/start-taky-cot.sh /common/start-taky-cot.sh
-COPY /common/start-taky-data.sh /common/start-taky-data.sh
+#Cleanup
+RUN apt-get autoremove
 
-#Need to remake this to utilize default taky functionality.
-COPY /common/start-taky-certgen.sh /common/start-taky-certgen.sh
-COPY /common/taky.conf /taky.conf
+COPY /start.sh /start.sh
+COPY /common/ /common/
 
 #Setup user
 RUN addgroup --gid 1000 taky  &&\
