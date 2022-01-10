@@ -1,5 +1,5 @@
 FROM debian:bullseye
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 #Add for psutils to download. 
 RUN echo "deb http://ftp.de.debian.org/debian bullseye main"> /etc/apt/sources.list
 
@@ -9,7 +9,6 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff, verbose for debugging reasons. 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-
 
 #Required stuff
 RUN apt-get install -y python3
@@ -24,14 +23,15 @@ RUN apt-get install -y redis-server
 RUN apt-get install -y python3-openssl
 
 
-
 #To sort out some dependency issues with cross platform building
 RUN apt-get install -y build-essential 
 RUN apt-get install -y libssl-dev 
 RUN apt-get install -y libffi-dev 
 RUN apt-get install -y python3-dev
 
-RUN pip3 install requests flask 
+RUN pip3 install requests
+RUN pip3 install flask
+
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
 RUN python3 --version
 
