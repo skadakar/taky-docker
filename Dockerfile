@@ -35,10 +35,10 @@ RUN chown 1000 /var/taky && chgrp 1000 /var/taky
 #To run common scripts
 RUN chown 1000 -R /common && chgrp 1000 -R /common
 #For FQDN hack rights
-RUN chown 1000 -R /usr/local/lib/python3.8/dist-packages/taky && chgrp 1000 -R /usr/local/lib/python3.8/dist-packages/taky
+RUN chown 1000 -R /usr/local/lib/python3.9/dist-packages/taky && chgrp 1000 -R /usr/local/lib/python3.9/dist-packages/taky
 
 # Letting people know it's a docker image for complaining
-RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\/taky:latest\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
+RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\/taky:latest\)\"\,/' /usr/local/lib/python3.9/dist-packages/taky/dps/views/version.py
 
 #Ports
 EXPOSE 8087
