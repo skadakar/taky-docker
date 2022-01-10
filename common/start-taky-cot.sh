@@ -22,18 +22,12 @@ fi
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
 else
-	if ${redis} '==' True; then
-		redis-server --daemonize yes
+	if ${redis} '==' false; then
+		echo "Redis not configured"
 	else
-		echo "Redis not True and not empty, assuming connection string."
+		echo "Redis configured to use $redis"
 	fi
 fi
 
-#Starting taky
-#echo "Debug"
-#echo " "
-#echo "Running the following config"
-#echo "$(cat /data/conf/taky.conf)"
-#echo " "
 echo "Starting taky COT as taky user"
 taky -c /data/conf/taky.conf -l debug
