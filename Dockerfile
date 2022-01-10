@@ -11,29 +11,11 @@ RUN apt-get -y update
 RUN apt-get -y upgrade
 
 #Required stuff
-RUN apt-get install -y python3
-RUN apt-get install -y python3-setuptools
-RUN apt-get install -y python3-psutil
-RUN apt-get install -y python3-pip
-RUN apt-get install -y python3-lxml
-RUN apt-get install -y gunicorn
-RUN apt-get install -y git
-RUN apt-get install -y crudini
-RUN apt-get install -y redis-server
-RUN apt-get install -y python3-openssl
+RUN apt-get install -y python3 python3-setuptools python3-psutil python3-pip python3-lxml gunicorn git crudini redis-server python3-openssl build-essential libssl-dev libffi-dev python3-dev
 
-
-#To sort out some dependency issues with cross platform building
-RUN apt-get install -y build-essential 
-RUN apt-get install -y libssl-dev 
-RUN apt-get install -y libffi-dev 
-RUN apt-get install -y python3-dev
-
-RUN pip3 install requests
-RUN pip3 install flask
+RUN pip3 install requests flask
 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
-RUN python3 --version
 
 #Debug tooling
 RUN apt-get install -y iputils-ping nmap netcat wget
@@ -58,7 +40,6 @@ RUN mkdir -p /var/taky
 RUN chown 1000 /var/taky && chgrp 1000 /var/taky
 #To run common scripts
 RUN chown 1000 -R /common && chgrp 1000 -R /common
-#For FQDN hack rights
 RUN chown 1000 -R /usr/local/lib/python3.9/dist-packages/taky && chgrp 1000 -R /usr/local/lib/python3.9/dist-packages/taky
 
 # Letting people know it's a docker image for complaining
