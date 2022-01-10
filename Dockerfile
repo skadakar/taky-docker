@@ -21,9 +21,9 @@ RUN apt-get install -y gunicorn
 RUN apt-get install -y git
 RUN apt-get install -y crudini
 RUN apt-get install -y redis-server
-RUN python3 -m pip install --upgrade pip
+RUN apt-get install -y python3-openssl
 
-RUN pip install cryptography
+
 
 #To sort out some dependency issues with cross platform building
 RUN apt-get install -y build-essential 
@@ -31,7 +31,7 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y libffi-dev 
 RUN apt-get install -y python3-dev
 
-RUN pip3 install pyopenssl requests flask 
+RUN pip3 install requests flask 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
 RUN python3 --version
 
