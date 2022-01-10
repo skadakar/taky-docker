@@ -3,10 +3,19 @@ FROM debian:bullseye
 # UTC because everything on a server should be UTC
 RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 
-#Setup required stuff
+#Setup required stuff, verbose for debugging reasons. 
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -y python3 python-psutils python3-setuptools python3-psutil python3-pip python3-lxml gunicorn git crudini redis-server
+RUN apt-get install -y python3
+RUN apt-get install -y python-psutils
+RUN apt-get install -y python3-setuptools
+RUN apt-get install -y python3-psutil
+RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-lxml
+RUN apt-get install -y gunicorn
+RUN apt-get install -y git
+RUN apt-get install -y crudini
+RUN apt-get install -y redis-server
 
 RUN pip3 install pyopenssl requests flask 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
