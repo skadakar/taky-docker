@@ -1,4 +1,3 @@
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 FROM debian:bullseye
 
@@ -11,6 +10,9 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff, verbose for debugging reasons. 
 RUN apt-get -y update
 RUN apt-get -y upgrade
+
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+RUN pip install cryptography==3.4.6 
 
 #Required stuff
 RUN apt-get install -y python3
