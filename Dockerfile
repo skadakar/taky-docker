@@ -23,6 +23,9 @@ COPY /common/start-taky-data.sh /common/start-taky-data.sh
 COPY /common/start-taky-certgen.sh /common/start-taky-certgen.sh
 COPY /common/taky.conf /taky.conf
 
+#Setup user
+RUN addgroup --gid 1000 taky  &&\
+    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 #Folders
 RUN mkdir -p /etc/taky
@@ -33,10 +36,6 @@ RUN chown 1000 /var/taky && chgrp 1000 /var/taky
 RUN chown 1000 -R /common && chgrp 1000 -R /common
 #For FQDN hack rights
 RUN chown 1000 -R /usr/local/lib/python3.8/dist-packages/taky && chgrp 1000 -R /usr/local/lib/python3.8/dist-packages/taky
-
-#Setup user
-RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 # Letting people know it's a docker image for complaining
 RUN sed -i '16s/.*/\ \ \ \ \ \ \ \ \ \ \ \ \"version\": f\"taky-\{__version__\} \(Docker image: skadakar\/taky:latest\)\"\,/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/version.py
