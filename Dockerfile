@@ -13,7 +13,6 @@ RUN apt-get -y upgrade
 
 #Required stuff
 RUN apt-get install -y python3
-RUN apt-get install -y wheel
 RUN apt-get install -y python3-setuptools
 RUN apt-get install -y python3-psutil
 RUN apt-get install -y python3-pip
