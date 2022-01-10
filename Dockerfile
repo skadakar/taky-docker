@@ -1,7 +1,8 @@
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 FROM debian:bullseye
 
 #Add for psutils to download. 
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 RUN echo "deb http://ftp.de.debian.org/debian bullseye main"> /etc/apt/sources.list
 
 # UTC because everything on a server should be UTC
