@@ -1,13 +1,14 @@
 FROM debian:bullseye
+#Add for psutils to download. 
+RUN echo "deb http://ftp.de.debian.org/debian bullseye main"> /etc/apt/sources.list
 
 # UTC because everything on a server should be UTC
 RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 
 #Setup required stuff, verbose for debugging reasons. 
-RUN apt-get update
+RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y python3
-RUN apt-get install -y python-psutils
 RUN apt-get install -y python3-setuptools
 RUN apt-get install -y python3-psutil
 RUN apt-get install -y python3-pip
