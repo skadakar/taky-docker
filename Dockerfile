@@ -8,6 +8,13 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff, verbose for debugging reasons. 
 RUN apt-get -y update
 RUN apt-get -y upgrade
+#To sort out some dependency issues with cross platform building
+RUN apt-get install -y build-essential 
+RUN apt-get install -y libssl-dev 
+RUN apt-get install -y libffi-dev 
+RUN apt-get install -y python-dev
+
+#Rest of the things
 RUN apt-get install -y python3
 RUN apt-get install -y python3-setuptools
 RUN apt-get install -y python3-psutil
