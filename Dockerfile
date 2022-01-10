@@ -1,5 +1,3 @@
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
-
 FROM debian:bullseye
 
 #Add for psutils to download. 
