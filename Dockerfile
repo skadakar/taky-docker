@@ -21,6 +21,7 @@ RUN apt-get install -y gunicorn
 RUN apt-get install -y git
 RUN apt-get install -y crudini
 RUN apt-get install -y redis-server
+RUN python3 -m pip install --upgrade pip
 
 #Old crypt requirements:
 RUN pip3 install -y setuptools-rust
