@@ -38,37 +38,37 @@ This will default to use /data/ for saving data.
 This lets you decide what service to start while only needing one image, adhering to taky's structure and clean docker implementation practice. 
 
 ### TAKY
-|Variable|Type|
-|-----|----|
-|server_address|string|
-|node_id||string|
-|bind_ip|string|
-|redis|bool or connection string|
+|Variable|Type|Default|
+|-----|----|----|
+|server_address|string||
+|node_id|string|taky|
+|bind_ip|string|0.0.0.0|
+|redis|connection string|false|
 
 ### COT SERVER
-|Variable|Type|
-|-----|----|
-|port|num|
-|log_cot|string(path)|
-|cot_log|bool|
+|Variable|Type|Default|
+|-----|----|----|
+|port|num|TCP 8087 SSL 8089|
+|log_cot|string(path)|/data/logs|
+|cot_log|bool|false|
 
 ### DATAPACKAGE SERVER
-|Variable|Type|
-|-----|----|
-|upload_path|string|
+|Variable|Type|Default|
+|-----|----|----|
+|upload_path|string|/data/upload|
 
 ### SSL
-|Variable|Type|
-|-----|----|
-|ssl_enabled|bool|
-|client_cert_required|bool|
-|cert|
-|key|
-|key_pw|
-|ca|
-|ca_key|
-|server_p12|
-|server_p12_key|
+|Variable|Type|Default|
+|-----|----|----|
+|ssl_enabled|bool|false|
+|client_cert_required|bool|false
+|cert|file|/data/ssl/server.crt|
+|key|file|/data/ssl/server.key|
+|key_pw|string||
+|ca|file|/data/ssl/ca.crt|
+|ca_key||
+|server_p12|file|/data/ssl/server.p12|
+|server_p12_key|string|PoopSecurity|
 *  *  *  *  *
 
 
