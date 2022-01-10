@@ -8,13 +8,8 @@ RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 #Setup required stuff, verbose for debugging reasons. 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-#To sort out some dependency issues with cross platform building
-RUN apt-get install -y build-essential 
-RUN apt-get install -y libssl-dev 
-RUN apt-get install -y libffi-dev 
-RUN apt-get install -y python-dev
 
-#Rest of the things
+#Required stuff
 RUN apt-get install -y python3
 RUN apt-get install -y python3-setuptools
 RUN apt-get install -y python3-psutil
@@ -24,6 +19,12 @@ RUN apt-get install -y gunicorn
 RUN apt-get install -y git
 RUN apt-get install -y crudini
 RUN apt-get install -y redis-server
+
+#To sort out some dependency issues with cross platform building
+RUN apt-get install -y build-essential 
+RUN apt-get install -y libssl-dev 
+RUN apt-get install -y libffi-dev 
+RUN apt-get install -y python3-dev
 
 RUN pip3 install pyopenssl requests flask 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
