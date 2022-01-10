@@ -9,6 +9,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y python3 python3-pip python3-lxml gunicorn git crudini redis-server wget
 RUN pip3 install pyopenssl requests flask 
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
+RUN python3 --version
 
 #Debug tooling
 RUN apt-get install -y iputils-ping nmap netcat
@@ -17,8 +18,9 @@ COPY /start.sh /start.sh
 COPY /common/env.sh /common/env.sh
 COPY /common/start-taky-cot.sh /common/start-taky-cot.sh
 COPY /common/start-taky-data.sh /common/start-taky-data.sh
+
+#Need to remake this to utilize default taky functionality.
 COPY /common/start-taky-certgen.sh /common/start-taky-certgen.sh
-COPY /common/hackofthecert.py /common/hackofthecert.py
 COPY /common/taky.conf /taky.conf
 
 
