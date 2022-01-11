@@ -1,7 +1,7 @@
-version: "0.1"
+version: "3"
 services:
   taky-cot:
-    image: skadakar/taky:unified
+    image: skadakar/taky:latest
     container_name: taky-cot
     user: "1000"
     ports:
@@ -12,18 +12,19 @@ services:
      - mode=cot
      - public_ip=123.123.123.123
     volumes:
-      - /root/data/:/data
+      - /taky-ssl/:/etc/taky/ssl/
   taky-data:
     image: skadakar/taky:unified
     container_name: taky-data
     user: "1000"
     ports:
             - 8080:8080
+            - 8433:8433
     restart: unless-stopped
     environment:
      - mode=data
      - public_ip=123.123.123.123
     volumes:
-      - /root/data/:/data
+      - /taky-ssl/:/etc/taky/ssl/
 volumes:
-        data:
+        taky-ssl:

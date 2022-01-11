@@ -8,7 +8,7 @@ chown -R taky:taky /var/taky
 
 
 echo "Resetting config file"
-cp -f /common/taky.conf.sample /etc/taky/taky.conf
+cp -f /common/taky.conf /etc/taky/taky.conf
 
 echo "Adding env variables"
 #Env variable handling
