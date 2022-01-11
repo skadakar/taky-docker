@@ -23,6 +23,7 @@ RUN apt-get install -y iputils-ping nmap netcat wget
 RUN apt-get autoremove
 
 COPY /common/ /common/
+COPY /common/taky.conf /data/conf/taky.conf
 
 #Setup user
 RUN addgroup --gid 1000 taky  &&\
