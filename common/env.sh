@@ -1,6 +1,7 @@
 # This file will be read before Taky starts.
-#
-CONFY=/data/conf/taky.conf
+
+#Fresh config for env variable handling to work.
+CONFY=/etc/taky/taky.conf
 
 #TAKY
 #hostname

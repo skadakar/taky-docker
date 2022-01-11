@@ -1,10 +1,4 @@
 #!/bin/sh
-echo "Preparing folder structure"
-mkdir -p /data/conf
-mkdir -p /data/ssl
-mkdir -p /data/logs
-mkdir -p /data/upload
-mkdir -p /data/database
 
 #SSL
 if [ -z "${ssl_enabled}" ]; then
@@ -15,7 +9,6 @@ else
 	else
 		echo "Generating certs for Taky"
 		takyctl setup
-		cp /etc/taky/ssl/* /data/ssl/
 	fi
 fi
 #redis
@@ -30,4 +23,4 @@ else
 fi
 
 echo "Starting taky COT as taky user"
-taky -c /data/conf/taky.conf -l debug
+taky -c /etc/taky/taky.conf -l debug
