@@ -12,18 +12,16 @@ RUN apt-get -y upgrade
 
 #Required stuff
 RUN apt-get install -y python3 python3-setuptools python3-psutil python3-pip python3-lxml gunicorn git crudini redis-server python3-openssl build-essential libssl-dev libffi-dev python3-dev
-
 RUN pip3 install requests flask
-
+#Install Taky
 RUN pip3 install -U git+https://github.com/tkuester/taky@next
 
-#Debug tooling
+#Debug tooling, remove if you don't want them.
 RUN apt-get install -y iputils-ping nmap netcat wget
 
 #Cleanup
 RUN apt-get autoremove
 
-COPY /start.sh /start.sh
 COPY /common/ /common/
 
 #Setup user
@@ -48,4 +46,4 @@ EXPOSE 8089
 EXPOSE 8080
 EXPOSE 8443
 VOLUME ["/data"]
-ENTRYPOINT ["/bin/bash", "/start.sh"]
+ENTRYPOINT ["/bin/bash", "/common/start.sh"]
