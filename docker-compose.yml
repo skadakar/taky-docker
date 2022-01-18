@@ -13,6 +13,7 @@ services:
      - public_ip=123.123.123.123
     volumes:
       - /taky-ssl/:/etc/taky/ssl/
+      - /taky-data/:/data/
   taky-data:
     image: skadakar/taky:unified
     container_name: taky-data
@@ -26,5 +27,6 @@ services:
      - public_ip=123.123.123.123
     volumes:
       - /taky-ssl/:/etc/taky/ssl/
+      - /taky-data/:/data/
 volumes:
         taky-ssl:
