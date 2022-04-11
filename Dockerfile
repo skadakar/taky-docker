@@ -17,7 +17,7 @@ RUN pip3 install requests
 RUN pip3 install flask 
 
 #RUN pip3 install taky
-RUN pip install git+https://github.com/tkuester/taky
+RUN pip3 install git+https://github.com/tkuester/taky
 
 #Debug tooling
 RUN apt-get -y install iputils-ping nmap netcat
