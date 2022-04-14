@@ -14,7 +14,7 @@ else
     		echo "Certs already configured, skipping."
 	else
 		echo "Generating certs for Taky"
-		takyctl setup --public_ip=${public_ip}
+		takyctl setup --public-ip=${public_ip}
 		cp /etc/taky/ssl/* /data/ssl/
 	fi
 fi
