@@ -31,7 +31,7 @@ COPY /common/hackofthecert.py /common/hackofthecert.py
 COPY /common/taky.conf /taky.conf
 
 #Folders
-RUN mkdir -p /etc/taky
+RUN mkdir -p /etc/taky/ssl
 RUN chown 1000 /etc/taky && chgrp 1000 /etc/taky
 RUN mkdir -p /var/taky
 RUN chown 1000 /var/taky && chgrp 1000 /var/taky
