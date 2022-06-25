@@ -6,6 +6,15 @@ https://github.com/tkuester/taky
 
 https://hub.docker.com/r/skadakar/taky
 
+## Tags
+
+Nightly is built on the main taky github repo.
+
+Next is built on the next branch of the taky repo.
+
+Version specifics are manual builds based on pip installer with corresponding version numbers.
+
+
 
 ## Use
 Use -u 1000:1000 to avoid running as root, make sure 1000:1000 has read/write to whatever you've mapped /data to.
