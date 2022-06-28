@@ -38,6 +38,7 @@ fi
 #redis
 if [ -z "${redis}" ]; then
 	echo "Using default redis (false)"
+	crudini --set $CONFY taky redis ""
 else
 	echo "Setting redis to ${redis}"
 	crudini --set $CONFY taky redis ${redis}
