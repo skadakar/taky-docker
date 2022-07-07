@@ -36,4 +36,4 @@ fi
 #echo "$(cat /data/conf/taky.conf)"
 #echo " "
 echo "Starting taky COT as taky user"
-taky -c /data/conf/taky.conf -l debug
+taky -c /data/conf/taky.conf -l debug -d
