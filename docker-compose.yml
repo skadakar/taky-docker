@@ -59,4 +59,4 @@ services:
       - /root/node-red/certs/ca.pem:/data/certs/ca.pem
       - /root/node-red/certs/server.pem:/data/certs/server.pem
       - /root/node-red/certs/server.key:/data/certs/server.key
-      - /root/node-red/settings.js:/data/settings.js
+      
