@@ -1,24 +1,62 @@
-version: "0.2"
+version: "3.7"
 services:
-  taky-cot:
-    image: skadakar/taky:unified
+#TAKY COT
+   taky-cot:
+    image: skadakar/taky:nightly
     container_name: taky-cot
     user: "1000"
+    network_mode: host
     restart: unless-stopped
     environment:
-     - mode=cot
-     - public_ip=123.123.123.123
+      - ssl_enabled=true
+      - client_cert_required=true
+      - mode=cot
+      - cot_log=true
+      - public_ip=${IP}
+      - hostname=${ID}
+      - fqdnoverride=${IP}:8443
     volumes:
-      - /root/data/:/data
-  taky-data:
-    image: skadakar/taky:unified
+      - /root/taky-data/:/data
+#TAKY DATA
+   taky-data:
+    image: skadakar/taky:nightly
     container_name: taky-data
     user: "1000"
+    network_mode: host
     restart: unless-stopped
     environment:
-     - mode=data
-     - public_ip=123.123.123.123
+      - ssl_enabled=true
+      - client_cert_required=true
+      - mode=data
+      - cot_log=true
+      - public_ip=${IP}
+      - hostname=${ID}
+      - fqdnoverride=${IP}:8443
     volumes:
-      - /root/data/:/data
-volumes:
-        data:
+      - /root/taky-data/:/data
+#RTSP 
+   rtsp-server:
+    image: aler9/rtsp-simple-server
+    container_name: rtsp-server
+    user: "1000"
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      - RTSP_PROTOCOLS=tcp
+    volumes:
+      - /root/rtsp/rtsp-simple-server.yml:/rtsp-simple-server.yml
+#RTSP-SIDECAR
+   node-red:
+    container_name: taky-rtsp-sidecar
+    user: "1000"
+    network_mode: host
+    restart: unless-stopped
+    image: skadakar/taky-rtsp-sidecar:latest
+    environment:
+      - COT_IP=127.0.0.1
+      - COT_PORT=8089
+    volumes:
+      - /root/node-red/certs/ca.pem:/data/certs/ca.pem
+      - /root/node-red/certs/server.pem:/data/certs/server.pem
+      - /root/node-red/certs/server.key:/data/certs/server.key
+      - /root/node-red/settings.js:/data/settings.js
