@@ -1,12 +1,9 @@
-version: "0.1"
+version: "0.2"
 services:
   taky-cot:
     image: skadakar/taky:unified
     container_name: taky-cot
     user: "1000"
-    ports:
-            - 8087:8087
-            - 8089:8089
     restart: unless-stopped
     environment:
      - mode=cot
@@ -17,8 +14,6 @@ services:
     image: skadakar/taky:unified
     container_name: taky-data
     user: "1000"
-    ports:
-            - 8080:8080
     restart: unless-stopped
     environment:
      - mode=data
