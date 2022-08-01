@@ -30,6 +30,6 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       - name: build the image
         run: |
-          docker buildx build -f Dockerfile.socket-timeout \
-          --tag skadakar/taky:socket-timeout \
+          docker buildx build -f Dockerfile.latest \
+          --tag skadakar/taky:latest \
           --platform linux/amd64 . --push
