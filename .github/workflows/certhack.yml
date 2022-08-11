@@ -31,6 +31,6 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       - name: build the image
         run: |
-          docker buildx build \
+          docker buildx build -f Dockerfile.certhack \
           --tag skadakar/taky:certhack \
           --platform linux/amd64 . --push
