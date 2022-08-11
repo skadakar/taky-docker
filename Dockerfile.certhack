@@ -16,7 +16,7 @@ RUN pip3 install flask
 
 
 #Install Taky
-RUN pip3 install git+https://github.com/skadakar/taky
+RUN pip3 install git+https://github.com/tkuester/taky
 
 #Debug tooling
 RUN apt-get -y install iputils-ping nmap netcat telnet
@@ -44,7 +44,7 @@ RUN addgroup --gid 1000 taky  &&\
     adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 #OPENSSL SHA1 HACK ATTEMPT
-#RUN sed -i 's/signer_digest  = sha256/signer_digest  = sha1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/signer_digest  = sha256/signer_digest  = sha1/g' /etc/ssl/openssl.cnf
 
 #Ports
 EXPOSE 8087
