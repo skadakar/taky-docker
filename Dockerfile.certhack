@@ -14,8 +14,8 @@ RUN pip3 install requests
 RUN pip3 install flask 
 
 #Pin SSL stuff
-RUN apt-get install -y libssl-dev=1.1.1f-1ubuntu2
-RUN apt-get install -y openssl=1.1.1f-1ubuntu2.16
+#RUN apt-get install -y libssl-dev=1.1.1f-1ubuntu2
+RUN apt-get install -y libssl1.1=1.1.1f-1ubuntu2 openssl=1.1.1f-1ubuntu2.16
 
 #Install Taky
 RUN pip3 install git+https://github.com/skadakar/taky
