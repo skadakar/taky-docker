@@ -17,7 +17,7 @@ RUN pip3 install flask
 RUN apt-get install -y libssl1.1=1.1.1f-1ubuntu2 openssl=1.1.1f-1ubuntu2.16 --allow-downgrades
 
 #Install Taky
-RUN pip3 install git+hhttps://github.com/tkuester/taky@ssl-fix
+RUN pip3 install git+https://github.com/tkuester/taky@ssl-fix
 
 #Debug tooling
 RUN apt-get -y install iputils-ping nmap netcat telnet
