@@ -1,4 +1,4 @@
-name: Certhack
+name: SSL-Fix
 # SET VERSION IN BOTTOM!!!
 # Controls when the workflow will run
 on:
