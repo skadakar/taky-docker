@@ -14,7 +14,7 @@ RUN pip3 install requests
 RUN pip3 install flask 
 
 #Install Taky
-RUN pip3 install git+https://github.com/tkuester/taky@ssl-fix
+RUN pip3 install git+https://github.com/tkuester/taky@ssl-dev
 
 #Debug tooling
 RUN apt-get -y install iputils-ping nmap netcat telnet
