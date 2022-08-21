@@ -1,4 +1,4 @@
-name: SSL-Fix
+name: SSL-Dev
 # SET VERSION IN BOTTOM!!!
 # Controls when the workflow will run
 on:
@@ -31,6 +31,6 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       - name: build the image
         run: |
-          docker buildx build -f Dockerfile.ssl-fix \
+          docker buildx build -f Dockerfile.ssl-dev \
           --tag skadakar/taky:ssl-fix \
           --platform linux/amd64 . --push
