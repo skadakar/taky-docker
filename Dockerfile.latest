@@ -4,10 +4,6 @@ FROM debian:bullseye
 RUN apt update
 RUN apt upgrade -y
 
-#Create user
-RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
-
 RUN apt install -y python3 python3-setuptools python3-psutil python3-pip git 
 RUN pip install --upgrade pip
 RUN pip3 install requests flask
