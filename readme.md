@@ -8,9 +8,9 @@ https://hub.docker.com/r/skadakar/taky
 
 ## Tags
 
-Nightly is built on the main taky github repo.
+Current images are built on Debian Bullseye instead of ubuntu for better single board computer support.
 
-Next is built on the next branch of the taky repo.
+Latest is the newest image, potentially unstable.
 
 Version specifics are manual builds based on pip installer with corresponding version numbers.
 
