@@ -30,7 +30,6 @@ source /common/env.sh
         if [[ "$mode" == "certgen" ]]; then
             echo "Use docker exec to create certs instead.";
             exit()
-        fi
     #Checks for COT mode:
         #COT
         if [[ "$mode" == "cot" ]]; then
