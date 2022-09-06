@@ -27,12 +27,12 @@ Example for Data
 ```
 docker run -u 1000:1000 -e mode=data -e bind_ip=0.0.0.0 -e public_ip=123.123.123.123 -v /root/taky-data:/data -p 8080:8080 -d --name taky-data skadakar/taky:latest
 ```
-Example for cert gen (depricated soon i hope)
-```
-docker run -e mode=certgen -e public_ip=123.123.123.123 -v /root/taky:/data -d --name taky-certgen skadakar/taky:latest
-```
 
-If not specified it will use the content of taky.conf
+Example for client package generation:
+```
+docker exec taky-cot bash -c "cd /data/; takyctl -c /data/conf/taky.conf build_client --is_itak itak"
+docker exec taky-cot bash -c "cd /data/; takyctl -c /data/conf/taky.conf build_client atak"
+```
 
 This will default to use /data/ for saving data.
 
