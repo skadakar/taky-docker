@@ -4,6 +4,10 @@ FROM debian:bullseye
 RUN apt update
 RUN apt upgrade -y
 
+#Setup user
+RUN addgroup --gid 1000 taky
+RUN adduser --disabled-password --system --uid 1000 --ingroup taky --no-log-init --quiet taky
+
 RUN apt install -y python3 python3-setuptools python3-psutil python3-pip git 
 RUN pip install --upgrade pip
 RUN pip3 install requests flask
@@ -20,9 +24,7 @@ RUN apt-get autoremove
 COPY /common/ /common/
 COPY /common/taky.conf /data/conf/taky.conf
 
-#Setup user
-RUN addgroup --gid 1000 taky
-RUN adduser --disabled-password --system --create-home  --uid 1000 --ingroup taky
+
 
 #Folders
 RUN mkdir -p /etc/taky
