@@ -15,7 +15,7 @@ public_ip = os.getenv("public_ip", default="0.0.0.0")
 
 redis = os.getenv("redis", default="false")
 
-port = os.getenv("oirt", default="8089")
+port = os.getenv("port", default="8089")
 
 cot_log = os.getenv("cot_log ", default="/data/logs")
 
