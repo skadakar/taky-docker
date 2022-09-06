@@ -21,8 +21,8 @@ source /common/env.sh
     #Checks for certgen mode:
         #Certgen
         if [[ "$mode" == "certgen" ]]; then
-            echo "Starting certgen";
-            source /common/start-taky-certgen.sh
+            echo "Use docker exec to create certs instead.";
+            exit()
         fi
     #Checks for COT mode:
         #COT
