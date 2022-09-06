@@ -25,8 +25,8 @@ COPY /common/ /common/
 COPY /common/taky.conf /data/conf/taky.conf
 
 #Setup user
-RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --system --create-home  --uid 1000 --ingroup taky
+RUN addgroup --gid 1000 taky
+RUN adduser --disabled-password --system --create-home  --uid 1000 --ingroup taky
 
 #Folders
 RUN mkdir -p /etc/taky
