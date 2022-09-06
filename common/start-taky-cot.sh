@@ -1,11 +1,3 @@
-#!/bin/sh
-echo "Preparing folder structure"
-mkdir -p /data/conf
-mkdir -p /data/ssl
-mkdir -p /data/logs
-mkdir -p /data/upload
-mkdir -p /data/database
-
 #SSL
 if [ -z "${ssl_enabled}" ]; then
 	echo "No SSL configured"
@@ -19,21 +11,14 @@ else
 	fi
 fi
 #redis
-if [ -z "${redis}" ]; then
-	echo "Using default redis (false)"
-else
+if ${redis} '!=' False; then
 	if ${redis} '==' True; then
-		redis-server --daemonize yes
+		echo "Redis must be string or false"
+		exit()
 	else
-		echo "Redis not True and not empty, assuming connection string."
-	fi
+	echo "Redis is enabled and will try using the connectionstring" + ${redis}
 fi
 
-#Starting taky
-#echo "Debug"
-#echo " "
-#echo "Running the following config"
-#echo "$(cat /data/conf/taky.conf)"
-#echo " "
+
 echo "Starting taky COT as taky user"
 taky -c /data/conf/taky.conf -l debug -d
