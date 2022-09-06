@@ -26,7 +26,7 @@ COPY /common/taky.conf /data/conf/taky.conf
 
 #Setup user
 RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
+    adduser --disabled-password --gecos GECOS --uid 1000 --ingroup taky --home /home/taky taky 
 
 #Folders
 RUN mkdir -p /etc/taky
