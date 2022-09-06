@@ -41,7 +41,9 @@ server_p12_key = os.getenv("server_p12_key", default="PoopSecurity")
 
 
 #hostname
+echo ""
 echo "Setting variables for config:"
+echo ""
 
 echo "Setting hostname to ${hostname}"
 crudini --set $CONFY taky hostname ${hostname}
