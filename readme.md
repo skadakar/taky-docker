@@ -53,7 +53,7 @@ This lets you decide what service to start while only needing one image, adherin
 |node_id||string|
 |bind_ip|string|
 |public_ip|string|
-|redis|bool or connection string|
+|redis|redis connection string|
 
 ### COT SERVER
 |Variable|Type|
