@@ -8,17 +8,19 @@ ip4=$(curl ifconfig.io/ip)
 # Variable default values for docker container
 [  -z "$hostname" ] && hostname="TakyDocker"
 
-[  -z "$node_id" ] && node_id="TAKY "
+[  -z "$node_id" ] && node_id="TAKY"
 
 [  -z "$bind_ip" ] && bind_ip="0.0.0.0"
 
 [  -z "$public_ip" ] && public_ip=$ip4
 
-[  -z "$redis" ] && node_id=false 
+[  -z "$redis" ] && redis=false
 
 [  -z "$port" ] && port=8089
 
-[  -z "$cot_log" ] && cot_log="/data/logs"
+[  -z "$log_cot" ] && log_cot="/data/logs"
+
+[  -z "$cot_log" ] && cot_log=true
 
 [  -z "$upload_path" ] && upload_path="/data/upload"
 
@@ -64,8 +66,11 @@ crudini --set $CONFY taky redis ${redis}
 echo "Setting port to ${port}"
 crudini --set $CONFY cot_server port ${port}
 
-echo "Setting log_cot to ${cot_log}"
+echo "Setting log_cot to ${log_cot}"
 crudini --set $CONFY cot_server log_cot ${log_cot}
+
+echo "Setting cot_log to ${cot_log}"
+crudini --set $CONFY cot_server cot_log ${cot_log}
 
 echo "Setting upload_path to ${upload_path}"
 crudini --set $CONFY dp_server upload_path ${upload_path}
