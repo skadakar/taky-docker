@@ -1,34 +1,32 @@
-FROM ubuntu:20.04
+FROM debian:bullseye
 
-# UTC because everything on a server should be UTC
-RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
+#Fetch updates
+RUN apt update
+RUN apt upgrade -y
 
-#Setup required stuff
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get -y install python3-pip
+#Create user
+RUN addgroup --gid 1000 taky  &&\
+    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
+
+RUN apt install -y python3 python3-setuptools python3-psutil python3-pip
 RUN pip install --upgrade pip
-RUN apt-get -y install build-essential libssl-dev libffi-dev python-dev git
-RUN apt-get -y install python3 python3-lxml python-dateutil gunicorn gcc git crudini redis-server wget
+RUN pip3 install requests flask
 
-#One of these is failing to install.. 
-#RUN pip3 install pyopenssl
-RUN pip3 install requests 
-RUN pip3 install flask 
+#Install Taky
+RUN pip3 install taky
 
-RUN pip install taky
-#RUN pip3 install git+https://github.com/tkuester/taky
+#Debug tooling, remove if you don't want them.
+RUN apt-get install -y iputils-ping nmap netcat wget
 
-#Debug tooling
-RUN apt-get -y install iputils-ping nmap netcat
+#Cleanup
+RUN apt-get autoremove
 
-COPY /start.sh /start.sh
-COPY /common/env.sh /common/env.sh
-COPY /common/start-taky-cot.sh /common/start-taky-cot.sh
-COPY /common/start-taky-data.sh /common/start-taky-data.sh
-COPY /common/start-taky-certgen.sh /common/start-taky-certgen.sh
-COPY /common/hackofthecert.py /common/hackofthecert.py
-COPY /common/taky.conf /taky.conf
+COPY /common/ /common/
+COPY /common/taky.conf /data/conf/taky.conf
+
+#Setup user
+RUN addgroup --gid 1000 taky  &&\
+    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 #Folders
 RUN mkdir -p /etc/taky
@@ -37,18 +35,12 @@ RUN mkdir -p /var/taky
 RUN chown 1000 /var/taky && chgrp 1000 /var/taky
 #To run common scripts
 RUN chown 1000 -R /common && chgrp 1000 -R /common
-#For FQDN hack rights
-RUN chown 1000 -R /usr/local/lib/python3.8/dist-packages/taky && chgrp 1000 -R /usr/local/lib/python3.8/dist-packages/taky
-
-#Setup user
-RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
+RUN chown 1000 -R /usr/local/lib/python3.9/dist-packages/taky && chgrp 1000 -R /usr/local/lib/python3.9/dist-packages/taky
 
 #Ports
 EXPOSE 8087
 EXPOSE 8089
 EXPOSE 8080
 EXPOSE 8443
-
 VOLUME ["/data"]
-ENTRYPOINT ["/bin/bash", "/start.sh"]
+ENTRYPOINT ["/bin/bash", "/common/start.sh"]

@@ -2,7 +2,7 @@ version: "3.7"
 services:
 #TAKY COT
    taky-cot:
-    image: skadakar/taky:nightly
+    image: skadakar/taky:latest
     container_name: taky-cot
     user: "1000"
     network_mode: host
@@ -19,7 +19,7 @@ services:
       - /root/taky-data/:/data
 #TAKY DATA
    taky-data:
-    image: skadakar/taky:nightly
+    image: skadakar/taky:latest
     container_name: taky-data
     user: "1000"
     network_mode: host

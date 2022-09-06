@@ -21,8 +21,8 @@ source /common/env.sh
     #Checks for certgen mode:
         #Certgen
         if [[ "$mode" == "certgen" ]]; then
-            echo "Starting certgen";
-            source /common/start-taky-certgen.sh
+            echo "Use docker exec to create certs instead.";
+            exit()
         fi
     #Checks for COT mode:
         #COT
@@ -50,3 +50,10 @@ source /common/env.sh
             source /common/start-taky-data.sh
         fi    
     fi
+
+echo "Preparing folder structure"
+mkdir -p /data/conf
+mkdir -p /data/ssl
+mkdir -p /data/logs
+mkdir -p /data/upload
+mkdir -p /data/database
