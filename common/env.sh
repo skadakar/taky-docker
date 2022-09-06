@@ -1,43 +1,43 @@
-import os
-
 # This file will be read before Taky starts.
 CONFY=/data/conf/taky.conf
 
+ip4=$(curl ifconfig.io/ip)
+
+
 # Variable default values for docker container
+[  -z "$hostname" ] && hostname="TakyDocker"
 
-hostname = os.getenv("hostname", default="TakyDocker")
+[  -z "$node_id" ] && node_id="TAKY "
 
-node_id = os.getenv("node_id", default="TAKY")
+[  -z "$bind_ip" ] && bind_ip="0.0.0.0"
 
-bind_ip = os.getenv("bind_ip", default="0.0.0.0")
+[  -z "$public_ip" ] && public_ip=$ip4
 
-public_ip = os.getenv("public_ip", default="0.0.0.0")
+[  -z "$redis" ] && node_id=false 
 
-redis = os.getenv("redis", default="false")
+[  -z "$port" ] && port=8089
 
-port = os.getenv("port", default="8089")
+[  -z "$cot_log" ] && cot_log="/data/logs"
 
-cot_log = os.getenv("cot_log ", default="/data/logs")
+[  -z "$upload_path" ] && upload_path="/data/upload"
 
-upload_path = os.getenv("upload_path", default="/data/upload")
+[  -z "$ssl_enaabled" ] && ssl_enaabled=true
 
-ssl_enaabled = os.getenv("ssl_enabled", default="true")
+[  -z "$client_cert_required" ] && client_cert_required=true
 
-client_cert_required = os.getenv("client_cert_required", default="true")
+[  -z "$cert" ] && cert="/data/ssl/server.crt"
 
-cert = os.getenv("cert", default="/data/ssl/server.crt")
+[  -z "$key" ] && key="/data/ssl/server.key"
 
-key = os.getenv("key", default="/data/ssl/server.key")
+[  -z "$key_pw" ] && key_pw=""
 
-key_pw = os.getenv("key_pw", default="")
+[  -z "$ca" ] && ca="/data/ssl/ca.crt"
 
-ca = os.getenv("ca", default="/data/ssl/ca.crt")
+[  -z "$ca_key" ] && ca_key="/data/ssl/ca.key"
 
-ca_key = os.getenv("ca_key", default="/data/ssl/ca.key")
+[  -z "$server_p12" ] && server_p12="/data/ssl/server.p12"
 
-server_p12 = os.getenv("server_p12", default="/data/ssl/server.p12")
-
-server_p12_key = os.getenv("server_p12_key", default="PoopSecurity")
+[  -z "$server_p12_key" ] && server_p12_key="PoopSecurity"
 
 
 #hostname
