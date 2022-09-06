@@ -1,3 +1,4 @@
+#!/bin/sh
 # This file will be read before Taky starts.
 CONFY=/data/conf/taky.conf
 
