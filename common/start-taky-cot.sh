@@ -13,7 +13,7 @@ else
 	
 fi
 #redis
-if ${redis} '!=' False; then
+if ${redis} != False; then
 	if ${redis} '==' True; then
 		echo "Redis must be string or false"
 		exit
