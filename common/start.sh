@@ -1,6 +1,13 @@
 #!/bin/sh
 # This script detects the mode the image is running in and starts the relevant service.
 
+echo "Preparing folder structure"
+mkdir -p /data/conf
+mkdir -p /data/ssl
+mkdir -p /data/logs
+mkdir -p /data/upload
+mkdir -p /data/database
+
 echo "Creating needed folder structure for Taky to work"
 chown -R taky:taky /data
 chown -R taky:taky /etc/taky
@@ -11,7 +18,7 @@ echo "Resetting config file"
 cp -f /taky.conf /data/conf/taky.conf
 echo "Adding env variables"
 #Env variable handling
-source /common/env.sh
+source /common/env.py
 
 #Check if mode is selected:
     if [ -z "${mode}" ]; then
@@ -51,9 +58,4 @@ source /common/env.sh
         fi    
     fi
 
-echo "Preparing folder structure"
-mkdir -p /data/conf
-mkdir -p /data/ssl
-mkdir -p /data/logs
-mkdir -p /data/upload
-mkdir -p /data/database
+
