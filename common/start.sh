@@ -21,40 +21,41 @@ echo "Adding env variables"
 source /common/env.sh
 
 #Check if mode is selected:
-    if [ -z "${mode}" ]; then
-        echo "No mode selected, see readme";
-        exit
+if [ -z "${mode}" ]; then
+    echo "No mode selected, see readme";
+    exit
+fi
+#Checks for certgen mode:
+#Certgen
+if [[ "$mode" == "certgen" ]]; then
+    echo "Use docker exec to create certs instead.";
+    exit
+fi
+#Checks for COT mode:
+#COT
+if [[ "$mode" == "cot" ]]; then
+    echo "Starting COT Server";
+    source /common/start-taky-cot.sh
+fi
+#Checks for datapackage service mode:
+#Data
+if [[ "$mode" == "data" ]]; then
+#Ugly hacks go here
+#FQDN Override
+    if [ -z "${fqdnoverride}" ]; then
+        echo "No FQDN Override active"
     else
-    #Checks for certgen mode:
-        #Certgen
-        if [[ "$mode" == "certgen" ]]; then
-            echo "Use docker exec to create certs instead.";
-            exit()
-    #Checks for COT mode:
-        #COT
-        if [[ "$mode" == "cot" ]]; then
-            echo "Starting COT Server";
-            source /common/start-taky-cot.sh
+        if [ "$ssl_enabled" = true ] ; then
+            echo "Setting override for SSL use"
+            sed -i '19s/.*/\ \ \ \ return f\"https:\/\/'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
+        else
+            echo "Setting override for TCP use"
+            sed -i '19s/.*/\ \ \ \ return f\"'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
         fi
-    #Checks for datapackage service mode:
-        #Data
-        if [[ "$mode" == "data" ]]; then
-        #Ugly hacks go here
-        #FQDN Override
-            if [ -z "${fqdnoverride}" ]; then
-                echo "No FQDN Override active"
-            else
-                if [ "$ssl_enabled" = true ] ; then
-                    echo "Setting override for SSL use"
-                    sed -i '19s/.*/\ \ \ \ return f\"https:\/\/'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
-                else
-                    echo "Setting override for TCP use"
-                    sed -i '19s/.*/\ \ \ \ return f\"'"${fqdnoverride}"'\/Marti\/sync\/content\?hash\=\{f_hash}\"/' /usr/local/lib/python3.8/dist-packages/taky/dps/views/datapackage.py
-                fi
-            fi
-            echo "Starting Datapacakage Server";
-            source /common/start-taky-data.sh
-        fi    
     fi
+    echo "Starting Datapacakage Server";
+    source /common/start-taky-data.sh
+fi    
+
 
 
