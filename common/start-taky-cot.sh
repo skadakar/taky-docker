@@ -1,3 +1,4 @@
+#!/bin/sh
 if [ -z "${ssl_enabled}" ]; then
 	echo "No SSL configured"
 else
