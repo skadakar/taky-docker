@@ -18,7 +18,7 @@ echo "Resetting config file"
 cp -f /common/taky.conf /data/conf/taky.conf
 echo "Adding env variables"
 #Env variable handling
-source /common/env.py
+source /common/env.sh
 
 #Check if mode is selected:
     if [ -z "${mode}" ]; then
