@@ -1,156 +1,99 @@
+import os
+
 # This file will be read before Taky starts.
-#
 CONFY=/data/conf/taky.conf
 
-#TAKY
+# Variable default values for docker container
+
+hostname = os.getenv("hostname", default="TakyDocker")
+
+node_id = os.getenv("node_id", default="TAKY")
+
+bind_ip = os.getenv("bind_ip", default="0.0.0.0")
+
+public_ip = os.getenv("public_ip", default="0.0.0.0")
+
+redis = os.getenv("redis", default="false")
+
+port = os.getenv("oirt", default="8089")
+
+cot_log = os.getenv("cot_log ", default="/data/logs")
+
+upload_path = os.getenv("upload_path", default="/data/upload")
+
+ssl_enaabled = os.getenv("ssl_enabled", default="true")
+
+client_cert_required = os.getenv("client_cert_required", default="true")
+
+cert = os.getenv("cert", default="/data/ssl/server.crt")
+
+key = os.getenv("key", default="/data/ssl/server.key")
+
+key_pw = os.getenv("key_pw", default="")
+
+ca = os.getenv("ca", default="/data/ssl/ca.crt")
+
+ca_key = os.getenv("ca_key", default="/data/ssl/ca.key")
+
+server_p12 = os.getenv("server_p12", default="/data/ssl/server.p12")
+
+server_p12_key = os.getenv("server_p12_key", default="PoopSecurity")
+
+
 #hostname
-if [ -z "${hostname}" ]; then
-	echo "Using default hostname"
-else
-	echo "Setting hostname to ${hostname}"
-	crudini --set $CONFY taky hostname ${hostname}
-fi
+echo "Setting variables for config:"
 
-#node_id
-if [ -z "${node_id}" ]; then
-	echo "Using default node_id"
-else
-	echo "Setting node_id to ${node_id}"
-	crudini --set $CONFY taky node_id ${node_id}
-fi
+echo "Setting hostname to ${hostname}"
+crudini --set $CONFY taky hostname ${hostname}
 
-#bind_ip
-if [ -z "${bind_ip}" ]; then
-	echo "Using default bind_ip"
-else
-	echo "Setting bind_ip to ${bind_ip}"
-	crudini --set $CONFY taky bind_ip ${bind_ip}
-fi
+echo "Setting node_id to ${node_id}"
+crudini --set $CONFY taky node_id ${node_id}
 
-#public_ip
-if [ -z "${public_ip}" ]; then
-	echo "Using default public_ip"
-else
-	echo "Setting public_ip to ${public_ip}"
-	crudini --set $CONFY taky public_ip ${public_ip}
-fi
+echo "Setting bind_ip to ${bind_ip}"
+crudini --set $CONFY taky bind_ip ${bind_ip}
 
-#redis
-if [ -z "${redis}" ]; then
-	echo "Using default redis (false)"
-	crudini --set $CONFY taky redis ""
-else
-	echo "Setting redis to ${redis}"
-	crudini --set $CONFY taky redis ${redis}
-fi
+echo "Setting public_ip to ${public_ip}"
+crudini --set $CONFY taky public_ip ${public_ip}
 
+echo "Setting redis to ${redis}"
+crudini --set $CONFY taky redis ${redis}
 
-#COT SERVER
-#port
-if [ -z "${port}" ]; then
-	echo "Using default port"
-else
-	echo "Setting port to ${port}"
-	crudini --set $CONFY cot_server port ${port}
-fi
+echo "Setting port to ${port}"
+crudini --set $CONFY cot_server port ${port}
 
-#log_cot
-if [ -z "${log_cot}" ]; then
-	echo "Using default cot log path"
-else
-	echo "Setting log_cot to ${cot_log}"
-	crudini --set $CONFY cot_server log_cot ${log_cot}
-fi
+echo "Setting log_cot to ${cot_log}"
+crudini --set $CONFY cot_server log_cot ${log_cot}
 
-#cot_log
-if [ "$cot_log" = true ] ; then
-    echo "Setting log_cot to ${cot_log}"
-    crudini --set $CONFY cot_server cot_log ${cot_log}
-else
-    echo "Cot logging disabled"
-fi
+echo "Setting upload_path to ${upload_path}"
+crudini --set $CONFY dp_server upload_path ${upload_path}
 
+echo "Setting ssl_enabled to ${ssl_enabled}"
+crudini --set $CONFY ssl enabled ${ssl_enabled}
 
-#DATAPACKAGE SERVER
-#upload_path
-if [ -z "${upload_path}" ]; then
-	echo "Using default upload_path"
-else
-	echo "Setting upload_path to ${upload_path}"
-	crudini --set $CONFY dp_server upload_path ${upload_path}
-fi
+echo "Setting client_cert_required to ${client_cert_required}"
+crudini --set $CONFY ssl client_cert_required ${client_cert_required}
 
-#SSL
-#ssl_enabled
+echo "Setting cert to ${cert}"
+crudini --set $CONFY ssl cert ${cert}
 
-if [ "$ssl_enabled" = true ] ; then
-	echo "Setting ssl_enabled to ${ssl_enabled}"
-	crudini --set $CONFY ssl enabled ${ssl_enabled}
-else
-	echo "SSL not enabled"
-fi
+echo "Setting key to ${key}"
+crudini --set $CONFY ssl key ${key}
 
-#client_cert_required
-if [ "$client_cert_required" = true ] ; then
-	echo "Setting client_cert_required to ${client_cert_required}"
-	crudini --set $CONFY ssl client_cert_required ${client_cert_required}
-else
-	echo "Using default client_cert_required"
-fi
+echo "Setting key_pw to ${key_pw}"
+crudini --set $CONFY ssl key_pw ${key_pw}
 
-#cert
-if [ -z "${cert}" ]; then
-	echo "Using default cert"
-else
-	echo "Setting cert to ${cert}"
-	crudini --set $CONFY ssl cert ${cert}
-fi
+echo "Setting ca to ${ca}"
+crudini --set $CONFY ssl ca ${ca}
 
-#key
-if [ -z "${key}" ]; then
-	echo "Using default key"
-else
-	echo "Setting key to ${key}"
-	crudini --set $CONFY ssl key ${key}
-fi
+echo "Setting ca_key to ${ca_key}"
+crudini --set $CONFY ssl ca_key ${ca_key}
 
-#key_pw
-if [ -z "${key_pw}" ]; then
-	echo "Using default key_pw"
-else
-	echo "Setting key_pw to ${key_pw}"
-	crudini --set $CONFY ssl key_pw ${key_pw}
-fi
+echo "Setting server_p12 to ${server_p12}"
+crudini --set $CONFY ssl server_p12 ${server_p12}
 
-#ca
-if [ -z "${ca}" ]; then
-	echo "Using default ca"
-else
-	echo "Setting ca to ${ca}"
-	crudini --set $CONFY ssl ca ${ca}
-fi
+echo "Setting server_p12_key to ${server_p12_key}"
+crudini --set $CONFY ssl server_p12_key ${server_p12_key}
 
-#ca_key
-if [ -z "${ca_key}" ]; then
-	echo "Using default ca_key"
-else
-	echo "Setting ca_key to ${ca_key}"
-	crudini --set $CONFY ssl ca_key ${ca_key}
-fi
-
-#server_p12
-if [ -z "${server_p12}" ]; then
-	echo "Using default server_p12"
-else
-	echo "Setting server_p12 to ${server_p12}"
-	crudini --set $CONFY ssl server_p12 ${server_p12}
-fi
-
-#server_p12_key
-if [ -z "${server_p12_key}" ]; then
-	echo "Using default server_p12_key"
-else
-	echo "Setting server_p12_key to ${server_p12_key}"
-	crudini --set $CONFY ssl server_p12_key ${server_p12_key}
-fi
-
+echo ""
+echo "Variables set"
+echo ""
