@@ -42,7 +42,7 @@ This will default to use /data/ for saving data.
 ### Mode
 |Variable|Value|
 |-----|----|
-|Mode|cot/data/certgen|
+|Mode|cot/data|
  
 This lets you decide what service to start while only needing one image, adhering to taky's structure and clean docker implementation practice. 
 
