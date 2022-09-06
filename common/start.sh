@@ -50,3 +50,10 @@ source /common/env.sh
             source /common/start-taky-data.sh
         fi    
     fi
+
+echo "Preparing folder structure"
+mkdir -p /data/conf
+mkdir -p /data/ssl
+mkdir -p /data/logs
+mkdir -p /data/upload
+mkdir -p /data/database
