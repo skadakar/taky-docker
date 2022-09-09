@@ -38,7 +38,7 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$key" ] && key="/data/ssl/server.key"
 
-[  -z "$key_pw" ] && key_pw=""
+[  -z "$key_pw" ] && key_pw="CanYouBeliveTheyDidntChangeTheDefaultPassword"
 
 [  -z "$ca" ] && ca="/data/ssl/ca.crt"
 
