@@ -6,7 +6,7 @@ else
     		echo "Certs already configured, skipping."
 	else
 		echo "Generating certs for Taky"
-		takyctl setup --p12_pw=$server_p12_key --host=${hostname}  --bind-ip=${bind_ip} --public-ip=${public_ip}
+		takyctl setup --p12_pw=$server_p12_pw --host=${hostname}  --bind-ip=${bind_ip} --public-ip=${public_ip}
 		cp /etc/taky/ssl/* /data/ssl/
 		echo "Certificates created, will exit out and restart."
 		exit
