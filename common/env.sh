@@ -22,6 +22,12 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$cot_log" ] && cot_log=true
 
+[  -z "$mon_ip" ] && mon_ip="127.0.0.1"
+
+[  -z "$mon_port" ] && mon_port=8087
+
+[  -z "$max_persist_ttl" ] && max_persist_ttl=-1
+
 [  -z "$upload_path" ] && upload_path="/data/upload"
 
 [  -z "$ssl_enaabled" ] && ssl_enaabled=true
@@ -71,6 +77,15 @@ crudini --set $CONFY cot_server log_cot ${log_cot}
 
 echo "Setting cot_log to ${cot_log}"
 crudini --set $CONFY cot_server cot_log ${cot_log}
+
+echo "Setting mon_ip to ${mon_ip}"
+crudini --set $CONFY cot_server mon_ip ${mon_ip}
+
+echo "Setting mon_port to ${mon_port}"
+crudini --set $CONFY cot_server mon_port ${mon_port}
+
+echo "Setting max_persist_ttl to ${max_persist_ttl}"
+crudini --set $CONFY cot_server max_persist_ttl ${max_persist_ttl}
 
 echo "Setting upload_path to ${upload_path}"
 crudini --set $CONFY dp_server upload_path ${upload_path}
