@@ -64,6 +64,9 @@ This lets you decide what service to start while only needing one image, adherin
 |port|num|
 |log_cot|string(path)|
 |cot_log|bool|
+|mon_ip|string|
+|mon_port|num|
+|max_persist_ttl|num (-1 default)|
 
 ### DATAPACKAGE SERVER
 |Variable|Type|
