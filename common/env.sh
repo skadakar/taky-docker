@@ -46,7 +46,7 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$server_p12" ] && server_p12="/data/ssl/server.p12"
 
-[  -z "$server_p12_key" ] && server_p12_key="PoopSecurity"
+[  -z "$server_p12_pw" ] && server_p12_pw="PoopSecurity"
 
 
 #hostname
@@ -115,7 +115,7 @@ echo "Setting server_p12 to ${server_p12}"
 crudini --set $CONFY ssl server_p12 ${server_p12}
 
 echo "Setting server_p12_key to ${server_p12_key}"
-crudini --set $CONFY ssl server_p12_key ${server_p12_key}
+crudini --set $CONFY ssl server_p12_pw ${server_p12_pw}
 
 echo ""
 echo "Variables set"
