@@ -114,7 +114,7 @@ crudini --set $CONFY ssl ca_key ${ca_key}
 echo "Setting server_p12 to ${server_p12}"
 crudini --set $CONFY ssl server_p12 ${server_p12}
 
-echo "Setting server_p12_key to ${server_p12_key}"
+echo "Setting server_p12_pw to ${server_p12_pw}"
 crudini --set $CONFY ssl server_p12_pw ${server_p12_pw}
 
 echo ""
