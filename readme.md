@@ -85,7 +85,7 @@ This lets you decide what service to start while only needing one image, adherin
 |ca|
 |ca_key|
 |server_p12|
-|server_p12_key|
+|server_p12_pw|
 *  *  *  *  *
 
 ## Non standard operators
