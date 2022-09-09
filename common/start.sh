@@ -6,6 +6,7 @@ mkdir -p /data/conf
 mkdir -p /data/ssl
 mkdir -p /data/logs
 mkdir -p /data/upload
+mkdir -p /data/upload/meta
 mkdir -p /data/database
 
 echo "Creating needed folder structure for Taky to work"
