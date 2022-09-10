@@ -19,6 +19,8 @@ services:
       - /root/taky-data/:/data
 #TAKY DATA
    taky-data:
+    depends_on:
+      - taky-cot
     image: skadakar/taky:latest
     container_name: taky-data
     user: "1000"
