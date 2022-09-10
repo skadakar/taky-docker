@@ -17,9 +17,6 @@ RUN pip3 install git+https://github.com/tkuester/taky@ssl-fix
 #Debug tooling, remove if you don't want them.
 RUN apt-get install -y iputils-ping nmap netcat wget
 
-#Cleanup
-RUN apt-get autoremove
-
 COPY /common/ /common/
 COPY /common/taky.conf /data/conf/taky.conf
 
