@@ -34,6 +34,8 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$client_cert_required" ] && client_cert_required=true
 
+[  -z "$cert_db" ] && cert_db="/data/ssl/cert_db.txt"
+
 [  -z "$cert" ] && cert="/data/ssl/server.crt"
 
 [  -z "$key" ] && key="/data/ssl/server.key"
@@ -92,6 +94,9 @@ crudini --set $CONFY dp_server upload_path ${upload_path}
 
 echo "Setting ssl_enabled to ${ssl_enabled}"
 crudini --set $CONFY ssl enabled ${ssl_enabled}
+
+echo "Setting cert_db to ${cert_db}"
+crudini --set $CONFY ssl cert_db ${cert_db}
 
 echo "Setting client_cert_required to ${client_cert_required}"
 crudini --set $CONFY ssl client_cert_required ${client_cert_required}
