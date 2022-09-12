@@ -34,7 +34,7 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$client_cert_required" ] && client_cert_required=true
 
-[  -z "$cert_db" ] && cert_db="/data/ssl/cert_db.txt"
+[  -z "$cert_db" ] && cert_db="/data/ssl/"
 
 [  -z "$cert" ] && cert="/data/ssl/server.crt"
 
