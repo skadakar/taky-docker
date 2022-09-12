@@ -78,6 +78,7 @@ This lets you decide what service to start while only needing one image, adherin
 |Variable|Type|
 |-----|----|
 |ssl_enabled|bool|
+|cert_db|string|
 |client_cert_required|bool|
 |cert|
 |key|
