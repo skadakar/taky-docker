@@ -2,6 +2,7 @@
 # This script detects the mode the image is running in and starts the relevant service.
 
 echo "Preparing folder structure"
+mkdir -p /data
 mkdir -p /data/conf
 mkdir -p /data/ssl
 mkdir -p /data/logs
