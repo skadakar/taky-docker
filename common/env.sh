@@ -30,7 +30,7 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$upload_path" ] && upload_path="/data/upload"
 
-[  -z "$ssl_enaabled" ] && ssl_enaabled=true
+[  -z "$ssl_enabled" ] && ssl_enabled=true
 
 [  -z "$client_cert_required" ] && client_cert_required=true
 
