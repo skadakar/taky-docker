@@ -15,7 +15,7 @@ else
 fi
 #redis
 if ${redis} != False; then
-	if ${redis} '==' True; then
+	if ${redis} '==' true; then
 		echo "Redis must be string or false"
 		exit
 	fi
