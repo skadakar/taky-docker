@@ -16,8 +16,9 @@ fi
 #redis
 if ${redis} != False; then
 	if ${redis} '==' true; then
-		echo "Redis must be string or false"
-		exit
+		echo "Redis will run in the background, this is not ideal but it does work."
+		echo "Proper way of doing it is to use a dedicated redis and insert the connection string."
+		redis-server --daemonize yes
 	fi
 	else
 	echo "Redis is enabled and will try using the connectionstring" + ${redis}
