@@ -24,7 +24,7 @@ ip4=$(curl ifconfig.io/ip)
 
 [  -z "$mon_ip" ] && mon_ip="127.0.0.1"
 
-[  -z "$mon_port" ] && mon_port=8087
+[  -z "$mon_port" ] && mon_port=1337
 
 [  -z "$max_persist_ttl" ] && max_persist_ttl=-1
 
