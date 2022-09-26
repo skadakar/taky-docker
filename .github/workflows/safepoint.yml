@@ -33,3 +33,4 @@ jobs:
           docker buildx build -f Dockerfile.debug \
           --tag skadakar/taky:safepoint \
           --platform linux/amd64 . --push
+
