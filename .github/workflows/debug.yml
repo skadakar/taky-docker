@@ -34,4 +34,5 @@ jobs:
         run: |
           docker buildx build -f Dockerfile.debug \
           --tag skadakar/taky:debug \
-          --platform linux/amd64 . --push
+          --platform linux/amd64,linux/arm64 . --push
+
