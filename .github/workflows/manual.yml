@@ -32,5 +32,5 @@ jobs:
       - name: build the image
         run: |
           docker buildx build \
-          --tag skadakar/taky:0.8.4 \
+          --tag skadakar/taky:0.9 \
           --platform linux/amd64 . --push
