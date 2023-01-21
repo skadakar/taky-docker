@@ -4,16 +4,14 @@ FROM debian:bullseye
 RUN apt update
 RUN apt upgrade -y
 
-#Create user
-RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
+#Setup user
+RUN adduser --disabled-password --uid 1000 --gecos "" --shell /bin/bash taky
 
-RUN apt install -y python3 python3-setuptools python3-psutil python3-pip
-RUN pip install --upgrade pip
+RUN apt-get install -y python3 python3-setuptools python3-psutil python3-pip python3-lxml gunicorn git crudini redis-server python3-openssl build-essential libssl-dev libffi-dev python3-dev git curl
 RUN pip3 install requests flask
 
 #Install Taky
-RUN pip3 install taky
+RUN pip3 install git+https://github.com/tkuester/taky
 
 #Debug tooling, remove if you don't want them.
 RUN apt-get install -y iputils-ping nmap netcat wget
@@ -24,9 +22,6 @@ RUN apt-get autoremove
 COPY /common/ /common/
 COPY /common/taky.conf /data/conf/taky.conf
 
-#Setup user
-RUN addgroup --gid 1000 taky  &&\
-    adduser --disabled-password --uid 1000 --ingroup taky --home /home/taky taky 
 
 #Folders
 RUN mkdir -p /etc/taky
