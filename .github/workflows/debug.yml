@@ -1,8 +1,6 @@
-name: Latest build
+name: Debug to test specific versions
 # Controls when the workflow will run
 on:
-  schedule:
-    - cron: "0 1 * * *"
   # Triggers the workflow on push or pull request events but only for the main branch
   workflow_dispatch:
 jobs:
