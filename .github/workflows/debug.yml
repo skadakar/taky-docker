@@ -1,4 +1,4 @@
-name: Debug to test specific versions
+name: Debug to test routing-marti-uid
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -31,5 +31,5 @@ jobs:
       - name: build the image
         run: |
           docker buildx build -f Dockerfile.debug \
-          --tag skadakar/taky:debug \
+          --tag skadakar/taky:routing-marti-uid \
           --platform linux/amd64,linux/arm64 . --push
