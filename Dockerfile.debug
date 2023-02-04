@@ -12,7 +12,7 @@ RUN pip install --upgrade pip
 RUN pip3 install requests flask
 
 # Install Taky
-RUN pip3 install git+https://github.com/tkuester/taky@ssl-fix
+RUN pip3 install git+https://github.com/tkuester/taky@routing-marti-uid
 #RUN pip3 install git+https://github.com/tkuester/taky
 
 #Debug tooling, remove if you don't want them.
