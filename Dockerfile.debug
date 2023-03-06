@@ -7,9 +7,9 @@ RUN apt upgrade -y
 # Setup user
 RUN adduser --disabled-password --uid 1000 --gecos "" --shell /bin/bash taky
 
-RUN apt-get install -y python3 python3-pip git crudini curl redis-server python3-lxml
-RUN pip install --upgrade pip
+RUN apt-get install -y python3 python3-setuptools python3-psutil python3-pip python3-lxml gunicorn git crudini redis-server python3-openssl build-essential libssl-dev libffi-dev python3-dev git curl
 RUN pip3 install requests flask
+
 
 # Install Taky
 RUN pip3 install git+https://github.com/tkuester/taky@routing-marti-uid
