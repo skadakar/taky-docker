@@ -30,7 +30,7 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       - name: build the image
         run: |
-          docker buildx build -f Dockerfile.debug \
+          docker buildx build -f Dockerfile.latest \
           --tag skadakar/taky:safepoint \
           --platform linux/amd64,linux/arm64 . --push
 
