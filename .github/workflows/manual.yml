@@ -29,8 +29,9 @@ jobs:
       -
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
+#CHANGE TAG HERE
       - name: build the image
         run: |
           docker buildx build \
-          --tag skadakar/taky:0.9 \
+          --tag skadakar/taky:0.10 \
           --platform linux/amd64,linux/arm64 . --push
