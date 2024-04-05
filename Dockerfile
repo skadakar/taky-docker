@@ -12,7 +12,7 @@ RUN pip3 install requests flask
 
 #Install Taky
 #RUN pip3 install git+https://github.com/tkuester/taky
-RUN pip3 install taky==0.9
+RUN pip3 install taky==0.10
 
 #Debug tooling, remove if you don't want them.
 RUN apt-get install -y iputils-ping nmap netcat wget
